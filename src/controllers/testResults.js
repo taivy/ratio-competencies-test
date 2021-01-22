@@ -640,8 +640,8 @@ function calcScores(answers) {
 
 
 exports.getResults = function(req, res) {
-  console.log("1!11!!1");
-  console.log(req.body);
+  const form_id = process.env.FORM_ID;
+  const token = process.env.TF_API_TOKEN;
 
   const response_id = req.body.response_id;
   const url = `https://api.typeform.com/forms/${form_id}/responses?`;
