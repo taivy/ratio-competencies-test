@@ -633,6 +633,9 @@ function calcScores(answers) {
 	}  else if (answers[34].choice.id == "2a9XZeanOjGS") {
 	}
 
+
+	return planning, execution, communication, learning, agency, awareness, estimations;
+
 }
 
 
@@ -664,7 +667,8 @@ exports.getResults = function(req, res) {
   			return response.sendBadRequest(res, "No answers found");
   		}
   		scores = calcScores(data.items.answers)
-
+  		let [planning, execution, communication, learning, agency, awareness, estimations] = scores;
+  		console.log(" [planning, execution, communication, learning, agency, awareness, estimations]",  [planning, execution, communication, learning, agency, awareness, estimations])
 
   	})
   }).catch((err) => {
