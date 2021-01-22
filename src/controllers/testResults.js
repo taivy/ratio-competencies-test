@@ -597,6 +597,41 @@ function calcScores(answers) {
 	}
 
 
+	if (answers[29].choice.id == "zQ0Hpe6QyVbh") {
+		awareness -= 8;
+	} else if (answers[29].choice.id == "RQ8RMgVGuJi6") {
+		estimations += 2;
+	}  else if (answers[29].choice.id == "IDgSPsYfeaQy") {
+		execution += 1;
+		awareness += 8;
+		estimations += 2;
+	}
+
+
+	if (answers[31].choice.id == "x0nFZAhuwtpT") {
+		planning += 1;
+		execution += 2;
+		awareness += 12;
+		estimations += 14;
+	} else if (answers[31].choice.id == "JEWy328uIhtg") {
+		execution += 1;
+		awareness += 6;
+		estimations += 4;
+	}  else if (answers[31].choice.id == "xxZLQLbRiuX6") {
+		awareness -= 4;
+		estimations -= 3;
+	}
+
+
+	if (answers[34].choice.id == "97DkVBtz0PJr") {
+		estimations += 4;
+	} else if (answers[34].choice.id == "Krrysm9KT4c7") {
+		planning += 1;
+		estimations += 12;
+	}  else if (answers[34].choice.id == "iFbYkUdBWKmP") {
+		estimations -= 4;
+	}  else if (answers[34].choice.id == "2a9XZeanOjGS") {
+	}
 
 }
 
