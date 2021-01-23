@@ -34,16 +34,16 @@ exports.getResults = function(req, res) {
   		if (data.items.length === 0) {
   			return response.sendBadRequest(res, "No answers found");
   		}
-  		scores = calcScores(data.items[0].answers)
-  		let [planning, execution, communication, learning, agency, awareness, estimations] = normalizeTestResults(scores);
+  		const scores = calcScores(data.items[0].answers);
+  		const normalizedScores = normalizeTestResults(scores);
+  		let [planning, execution, communication, learning, agency, awareness, estimations] = normalizedScores;
   		console.log(" [planning, execution, communication, learning, agency, awareness, estimations]",  [planning, execution, communication, learning, agency, awareness, estimations])
-
+  		const resultsChart = getTestResultsChart(normalizedScores);
+  		res.json({ resultsChart: resultsChart });
   	})
   }).catch((err) => {
   	console.log("err", err)
   	response.sendBadRequest(res, err);
   })
-
-  res.json({ message: 'success' });
 };
 

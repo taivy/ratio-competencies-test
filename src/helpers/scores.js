@@ -1,3 +1,42 @@
+import Chart from 'chart.js';
+const { CanvasRenderService } = require('chartjs-node-canvas');
+
+
+const width = 400; //px
+const height = 400; //px
+const canvasRenderService = new CanvasRenderService(width, height, (ChartJS) => { });
+
+
+
+
+exports.getTestResultsChart = function(resultsArray) {
+	const options = {};
+	/*
+	const options = {
+	    scale: {
+	        angleLines: {
+	            display: false
+	        },
+	        ticks: {
+	            suggestedMin: 50,
+	            suggestedMax: 100
+	        }
+	    }
+	};
+	*/
+    const configuration = {
+	    type: 'radar',
+	    data: {
+		    labels: ['Планирование', 'Исполнение', 'Общение', 'Самообучение', 'Агентность', 'Осознанность', 'Оценки'],
+		    datasets: [{
+		        data: resultsArray
+		    }]
+	    },
+	    options: options
+    };
+    const dataUrl = await canvasRenderService.renderToDataURL(configuration);
+    return dataUrl;
+}
 
 
 exports.normalizeTestResults = function(resultsArray) {
