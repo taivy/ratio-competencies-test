@@ -75,20 +75,17 @@ exports.calcScores = function(answers) {
 	}
 
 	if (answers[0].choice.id === "DWKyOsVeEoZE") {
-		for (let i=0; i<3; i++) {
+		for (let i=0; i<4; i++) {
 			answers.splice(1, 0, mockedAnswer);
 		}
 		console.log("answers after cycle", answers);
-
-		if (answers[16].choices.ids.includes("pCBAysBorEvE")) {
-			answers.splice(17, 0, mockedAnswer);
-		}
 	} else {
-		if (answers[16].choices.ids.includes("pCBAysBorEvE")) {
-			answers.splice(17, 0, mockedAnswer);
-		}
+		answers.splice(5, 0, mockedAnswer);
 	}
 
+	if (answers[16].choices.ids.includes("pCBAysBorEvE")) {
+		answers.splice(17, 0, mockedAnswer);
+	}
 
 
 	let planning_1;
@@ -201,41 +198,43 @@ exports.calcScores = function(answers) {
 		}
 	}
 
-	if (answers[5].choice.id == "AvnTLO0a6dhP") {
-		planning += 1*planning_1;
-		awareness += 2;
-	} else if (answers[5].choice.id == "X8V600e3yS2I") {
-		planning += 30;
-		execution += 10;
-	}  else if (answers[5].choice.id == "xADV5bkgQtom") {
-		planning += 50;
-		execution += 15;
-		awareness += 2;
+	if (answers[0].choice.id === "DWKyOsVeEoZE") {
+		if (answers[5].choice.id == "AvnTLO0a6dhP") {
+			planning += 1*planning_1;
+			awareness += 2;
+		} else if (answers[5].choice.id == "X8V600e3yS2I") {
+			planning += 30;
+			execution += 10;
+		}  else if (answers[5].choice.id == "xADV5bkgQtom") {
+			planning += 50;
+			execution += 15;
+			awareness += 2;
+		}
+	} else {
+		let planning_7 = 0;
+		if (answers[5].choices.ids.includes("YGcSE2eplNuG")) {
+			planning_7 += 2;
+			execution += 2;
+		}
+		if (answers[5].choices.ids.includes("SmQZpTwyF7Eo")) {
+			planning_7 += 1;
+		}
+		if (answers[5].choices.ids.includes("oViWGTEf8TUJ")) {
+			planning_7 += 2;
+			agency -= 2;
+			estimations += 3;
+		}
+		if (answers[5].choices.ids.includes("iqlJNwXUIqT0")) {
+			planning_7 += 1;
+		}
+		if (answers[5].choices.ids.includes("ZrqsCKl9UMxV")) {
+			planning_7 += 1;
+			learning -= 4;
+			agency -= 4;
+		}
+		planning += ((planning_7) * planning_4) / 10;
 	}
 
-
-	let planning_7 = 0;
-	if (answers[6].choices.ids.includes("YGcSE2eplNuG")) {
-		planning_7 += 2;
-		execution += 2;
-	}
-	if (answers[6].choices.ids.includes("SmQZpTwyF7Eo")) {
-		planning_7 += 1;
-	}
-	if (answers[6].choices.ids.includes("oViWGTEf8TUJ")) {
-		planning_7 += 2;
-		agency -= 2;
-		estimations += 3;
-	}
-	if (answers[6].choices.ids.includes("iqlJNwXUIqT0")) {
-		planning_7 += 1;
-	}
-	if (answers[6].choices.ids.includes("ZrqsCKl9UMxV")) {
-		planning_7 += 1;
-		learning -= 4;
-		agency -= 4;
-	}
-	planning += ((planning_7) * planning_4) / 10;
 
 
 	if (answers[7].choice.id == "CQntvyDouIae") {
