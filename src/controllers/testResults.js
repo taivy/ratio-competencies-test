@@ -1,5 +1,5 @@
 import response from '../helpers/response';
-import calcScores, normalizeTestResults from '../helpers/scores';
+import {calcScores, normalizeTestResults, getTestResultsChart} from '../helpers/scores';
 
 const fetch = require('node-fetch');
 
@@ -39,6 +39,7 @@ exports.getResults = function(req, res) {
   		let [planning, execution, communication, learning, agency, awareness, estimations] = normalizedScores;
   		console.log(" [planning, execution, communication, learning, agency, awareness, estimations]",  [planning, execution, communication, learning, agency, awareness, estimations])
   		const resultsChart = getTestResultsChart(normalizedScores);
+  		console.log("resultsChart",  resultsChart);
   		res.json({ resultsChart: resultsChart });
   	})
   }).catch((err) => {

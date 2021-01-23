@@ -9,7 +9,7 @@ const canvasRenderService = new CanvasRenderService(width, height, (ChartJS) => 
 
 
 
-exports.getTestResultsChart = function(resultsArray) {
+exports.getTestResultsChart = async function(resultsArray) {
 	const options = {};
 	/*
 	const options = {
