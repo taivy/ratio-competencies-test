@@ -671,7 +671,7 @@ exports.getResults = function(req, res) {
   		if (data.items.length === 0) {
   			return response.sendBadRequest(res, "No answers found");
   		}
-  		scores = calcScores(data.items.answers)
+  		scores = calcScores(data.items[0].answers)
   		let [planning, execution, communication, learning, agency, awareness, estimations] = scores;
   		console.log(" [planning, execution, communication, learning, agency, awareness, estimations]",  [planning, execution, communication, learning, agency, awareness, estimations])
 
