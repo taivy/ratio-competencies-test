@@ -645,6 +645,9 @@ exports.getResults = function(req, res) {
   const form_id = process.env.FORM_ID;
   const token = process.env.TF_API_TOKEN;
 
+  console.log("form_id", form_id)
+  console.log("token", token)
+
   const response_id = req.body.response_id;
   const url = `https://api.typeform.com/forms/${form_id}/responses?`;
   const urlParams = new URLSearchParams({
@@ -675,6 +678,7 @@ exports.getResults = function(req, res) {
   	})
   }).catch((err) => {
   	console.log("err", err)
+  	response.sendBadRequest(res, err);
   })
 
   res.json({ message: 'success' });

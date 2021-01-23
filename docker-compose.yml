@@ -6,8 +6,10 @@ services:
       dockerfile: ./docker/api/Dockerfile
     environment:
       - NODE_ENV=dev
-      - DB_HOST=db
+      #- DB_HOST=db
     volumes:
       - ./src:/home/node/app/src
     ports:
       - 9000:9000
+    env_file:
+      - .env
