@@ -54,7 +54,7 @@ exports.normalizeTestResults = function(resultsArray) {
 	const learning_normalized = Math.round(100*learning/max_learning);
 	const agency_normalized = Math.round(100*agency/max_agency);
 	const awareness_normalized = Math.round(100*awareness/max_awareness);
-	const estimations_normalized = Math.round(100*estimationestimations/max_estimations);
+	const estimations_normalized = Math.round(100*estimations/max_estimations);
 
 	return [planning_normalized, execution_normalized, communication_normalized, learning_normalized, 
 	agency_normalized, awareness_normalized, estimations_normalized]
@@ -722,6 +722,7 @@ exports.calcScores = function(answers) {
 	}
 
 
-	return planning, execution, communication, learning, agency, awareness, estimations;
+	return [planning, execution, communication, learning, agency, 
+	awareness, estimations];
 
 }
