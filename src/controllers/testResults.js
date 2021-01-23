@@ -1,5 +1,6 @@
 import response from '../helpers/response';
 
+var fetchUrl = require("fetch").fetchUrl;
 
 
 function calcScores(answers) {
@@ -659,7 +660,7 @@ exports.getResults = function(req, res) {
   	},
   }
 
-  fetch(url + urlParams.toString(), config).then((resp) => {
+  fetchUrl(url + urlParams.toString(), config).then((resp) => {
   	console.log("resp", resp)
   	resp.json().then((data) => {
   		console.log("data", data)
