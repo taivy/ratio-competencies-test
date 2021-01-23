@@ -34,7 +34,9 @@ exports.getResults = function(req, res) {
   		if (data.items.length === 0) {
   			return response.sendBadRequest(res, "No answers found");
   		}
-  		const scores = calcScores(data.items[0].answers);
+		console.log("data.items[0]", data.items[0]);
+
+  		const scores = calcScores(data["items"][0]["answers"]);
   		const normalizedScores = normalizeTestResults(scores);
   		let [planning, execution, communication, learning, agency, awareness, estimations] = normalizedScores;
   		console.log(" [planning, execution, communication, learning, agency, awareness, estimations]",  [planning, execution, communication, learning, agency, awareness, estimations])

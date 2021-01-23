@@ -63,6 +63,7 @@ exports.normalizeTestResults = function(resultsArray) {
 
 
 exports.calcScores = function(answers) {
+	console.log("answers", answers);
 	let [planning, execution, communication, learning, agency, awareness, estimations] = [0, 0, 0, 0, 0, 0, 0];
 	
 	let planning_1;
