@@ -346,29 +346,29 @@ exports.calcScores = function(answers) {
 	}
 
 
-	if (answers[12].choices.ids.includes("x2fI5wjpmq4s")) {
+	if (answers[12].choices.ids.includes("ZIOz25cFqhfD")) {
 		planning -= 4;
 		execution -= 2;
 		agency -= 4;
 		awareness += 2;
 		estimations -= 4;
 	}
-	if (answers[12].choices.ids.includes("wcCwSjyRWhpP")) {
+	if (answers[12].choices.ids.includes("FqcswomwDosn")) {
 		planning -= 2;
 		execution -= 1;
 		agency += 4;
 		awareness += 4;
 	}
-	if (answers[12].choices.ids.includes("wsCOONlq3j6F")) {
+	if (answers[12].choices.ids.includes("EzgRM8iDsgIK")) {
 		planning -= 2;
 		execution -= 1;
 		agency += 8;
 	}
-	if (answers[12].choices.ids.includes("2jeNi4tGKs3T")) {
+	if (answers[12].choices.ids.includes("xeNluP5Flvcu")) {
 		agency += 14;
 		awareness += 1;
 	}
-	if (answers[12].choices.ids.includes("3Sd3niAMzfE5")) {
+	if (answers[12].choices.ids.includes("qv5kJBb83STf")) {
 		execution -= 5;
 		agency -= 8;
 		awareness -= 4;
