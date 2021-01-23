@@ -1,5 +1,5 @@
 import response from '../helpers/response';
-import calcScores from '../helpers/scores';
+import calcScores, normalizeTestResults from '../helpers/scores';
 
 const fetch = require('node-fetch');
 
@@ -35,7 +35,7 @@ exports.getResults = function(req, res) {
   			return response.sendBadRequest(res, "No answers found");
   		}
   		scores = calcScores(data.items[0].answers)
-  		let [planning, execution, communication, learning, agency, awareness, estimations] = scores;
+  		let [planning, execution, communication, learning, agency, awareness, estimations] = normalizeTestResults(scores);
   		console.log(" [planning, execution, communication, learning, agency, awareness, estimations]",  [planning, execution, communication, learning, agency, awareness, estimations])
 
   	})

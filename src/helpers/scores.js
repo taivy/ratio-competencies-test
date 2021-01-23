@@ -1,4 +1,28 @@
 
+
+exports.normalizeTestResults = function(resultsArray) {
+	let [planning, execution, communication, learning, agency, awareness, estimations] = resultsArray;
+	const max_planning = 228;
+	const max_execution = 171;
+	const max_communication = 56;
+	const max_learning = 108;
+	const max_agency = 272;
+	const max_awareness = 222;
+	const max_estimations = 82;
+
+	const planning_normalized = planning/max_planning;
+	const execution_normalized = execution/max_execution;
+	const communication_normalized = communication/max_communication;
+	const learning_normalized = learning/max_learning;
+	const agency_normalized = agency/max_agency;
+	const awareness_normalized = awareness/max_awareness;
+	const estimations_normalized = estimationestimations/max_estimations;
+
+	return [planning_normalized, execution_normalized, communication_normalized, learning_normalized, 
+	agency_normalized, awareness_normalized, estimations_normalized]
+}
+
+
 exports.calcScores = function(answers) {
 	let [planning, execution, communication, learning, agency, awareness, estimations] = [0, 0, 0, 0, 0, 0, 0];
 	
