@@ -49,13 +49,13 @@ exports.normalizeTestResults = function(resultsArray) {
 	const max_awareness = 222;
 	const max_estimations = 82;
 
-	const planning_normalized = planning/max_planning;
-	const execution_normalized = execution/max_execution;
-	const communication_normalized = communication/max_communication;
-	const learning_normalized = learning/max_learning;
-	const agency_normalized = agency/max_agency;
-	const awareness_normalized = awareness/max_awareness;
-	const estimations_normalized = estimationestimations/max_estimations;
+	const planning_normalized = Math.round(100*planning/max_planning);
+	const execution_normalized = Math.round(100*execution/max_execution);
+	const communication_normalized = Math.round(100*communication/max_communication);
+	const learning_normalized = Math.round(100*learning/max_learning);
+	const agency_normalized = Math.round(100*agency/max_agency);
+	const awareness_normalized = Math.round(100*awareness/max_awareness);
+	const estimations_normalized = Math.round(100*estimationestimations/max_estimations);
 
 	return [planning_normalized, execution_normalized, communication_normalized, learning_normalized, 
 	agency_normalized, awareness_normalized, estimations_normalized]
