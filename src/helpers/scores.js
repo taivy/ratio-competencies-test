@@ -8,7 +8,6 @@ const canvasRenderService = new CanvasRenderService(width, height, (ChartJS) => 
 
 
 
-
 exports.getTestResultsChart = async function(resultsArray) {
 	const options = {};
 	/*
@@ -65,7 +64,33 @@ exports.normalizeTestResults = function(resultsArray) {
 exports.calcScores = function(answers) {
 	console.log("answers", answers);
 	let [planning, execution, communication, learning, agency, awareness, estimations] = [0, 0, 0, 0, 0, 0, 0];
-	
+
+	const mockedAnswer = { 
+		field:
+	      { id: ''},
+	    type: 'choice',
+	    choice: 
+	      { id: '', 
+	        label: '' } 
+	}
+
+	if (answers[0].choice.id === "DWKyOsVeEoZE") {
+		for (let i=0; i<3; i++) {
+			answers.splice(1, 0, mockedAnswer);
+		}
+		console.log("answers after cycle", answers);
+
+		if (answers[16].choices.ids.includes("pCBAysBorEvE")) {
+			answers.splice(17, 0, mockedAnswer);
+		}
+	} else {
+		if (answers[16].choices.ids.includes("pCBAysBorEvE")) {
+			answers.splice(17, 0, mockedAnswer);
+		}
+	}
+
+
+
 	let planning_1;
 	if (answers[0].choice.id == "Zkcyzjho0xDc") {
 		planning_1 = 3;
@@ -96,85 +121,85 @@ exports.calcScores = function(answers) {
 	}
 	planning += planning_1;
 
-
-	let planning_2;
-	if (answers[1].choice.id == "DdZVCnyQCMf0") {
-		planning_2 = 3;
-		execution += 10;
-		agency += 2;
-	} else if (answers[1].choice.id == "RUJgZvn7HHAr") {
-		planning_2 = 2;
-		execution += 8;
-		agency += 2;
-		estimations += 2;
-	}  else if (answers[1].choice.id == "T8mtIq1QnRV4") {
-		planning_2 = -1;
-		execution += 3;
-		learning += 1;
-		agency += 2;
-	}  else if (answers[1].choice.id == "2an7uBsMdQoE") {
-		planning_2 = -3;
-		execution -= 1;
-	}
-	planning += planning_2;
-
-
-	if (answers[2].choice.id == "3lI8N1okry8Q") {
-		planning += planning_2*0.3;
-		awareness += 2;
-	} else if (answers[2].choice.id == "4ZGyjSM7iLw0") {
-		planning += planning_2*0.8;
-		awareness += 2;
-	}  else if (answers[2].choice.id == "7GX4HGrXFXHR") {
-		planning += planning_2*1.2;
-		awareness += 2;
-	}  else if (answers[2].choice.id == "qbz0Nu58WYzf") {
-		planning += planning_2*2;
-	}
+	if (answers[0].choice.id !== "DWKyOsVeEoZE") {
+		let planning_2;
+		if (answers[1].choice.id == "DdZVCnyQCMf0") {
+			planning_2 = 3;
+			execution += 10;
+			agency += 2;
+		} else if (answers[1].choice.id == "RUJgZvn7HHAr") {
+			planning_2 = 2;
+			execution += 8;
+			agency += 2;
+			estimations += 2;
+		}  else if (answers[1].choice.id == "T8mtIq1QnRV4") {
+			planning_2 = -1;
+			execution += 3;
+			learning += 1;
+			agency += 2;
+		}  else if (answers[1].choice.id == "2an7uBsMdQoE") {
+			planning_2 = -3;
+			execution -= 1;
+		}
+		planning += planning_2;
 
 
-	let planning_4;
-	if (answers[3].choice.id == "4G1IswrlK8DW") {
-		planning_4 = 1;
+		if (answers[2].choice.id == "3lI8N1okry8Q") {
+			planning += planning_2*0.3;
+			awareness += 2;
+		} else if (answers[2].choice.id == "4ZGyjSM7iLw0") {
+			planning += planning_2*0.8;
+			awareness += 2;
+		}  else if (answers[2].choice.id == "7GX4HGrXFXHR") {
+			planning += planning_2*1.2;
+			awareness += 2;
+		}  else if (answers[2].choice.id == "qbz0Nu58WYzf") {
+			planning += planning_2*2;
+		}
+
+
+		let planning_4;
+		if (answers[3].choice.id == "4G1IswrlK8DW") {
+			planning_4 = 1;
+			planning += planning_4;
+			execution += 1;
+		} else if (answers[3].choice.id == "mpIWsdEGX0Sq") {
+			planning_4 = 4;
+			planning += planning_4;
+			execution += 4;
+			agency += 2;
+		}  else if (answers[3].choice.id == "3HGMc7ZCwbQu") {
+			planning_4 = 10;
+			planning += planning_4;
+			execution += 10;
+			learning += 1;
+			agency += 2;
+		}  else if (answers[3].choice.id == "J5LW8gLRzmbn") {
+			planning_4 = 15;
+			planning += planning_4;
+			execution += 15;
+			learning += 1;
+			agency += 2;
+		}
 		planning += planning_4;
-		execution += 1;
-	} else if (answers[3].choice.id == "mpIWsdEGX0Sq") {
-		planning_4 = 4;
-		planning += planning_4;
-		execution += 4;
-		agency += 2;
-	}  else if (answers[3].choice.id == "3HGMc7ZCwbQu") {
-		planning_4 = 10;
-		planning += planning_4;
-		execution += 10;
-		learning += 1;
-		agency += 2;
-	}  else if (answers[3].choice.id == "J5LW8gLRzmbn") {
-		planning_4 = 15;
-		planning += planning_4;
-		execution += 15;
-		learning += 1;
-		agency += 2;
+
+
+		if (answers[4].choice.id == "wivZk5ZtRd5T") {
+			learning -= 2;
+		} else if (answers[4].choice.id == "8NzXRTppA3ed") {
+			planning += 3;
+			agency += 3;
+			estimations += 2;
+		}  else if (answers[4].choice.id == "WYzK5qX4LMel") {
+			planning -= 2;
+			learning += 1;
+			agency += 2;
+		}  else if (answers[4].choice.id == "71QYrxvDBZ0g") {
+			planning += 3;
+			execution -= 2;
+			agency -= 4;
+		}
 	}
-	planning += planning_4;
-
-
-	if (answers[4].choice.id == "wivZk5ZtRd5T") {
-		learning -= 2;
-	} else if (answers[4].choice.id == "8NzXRTppA3ed") {
-		planning += 3;
-		agency += 3;
-		estimations += 2;
-	}  else if (answers[4].choice.id == "WYzK5qX4LMel") {
-		planning -= 2;
-		learning += 1;
-		agency += 2;
-	}  else if (answers[4].choice.id == "71QYrxvDBZ0g") {
-		planning += 3;
-		execution -= 2;
-		agency -= 4;
-	}
-
 
 	if (answers[5].choice.id == "AvnTLO0a6dhP") {
 		planning += 1*planning_1;
@@ -437,6 +462,7 @@ exports.calcScores = function(answers) {
 	execution += execution_16;
 
 
+
 	if (answers[16].choices.ids.includes("nvkzfhpwNroh")) {
 		planning += 1;
 		execution += 2;
@@ -473,21 +499,23 @@ exports.calcScores = function(answers) {
 	}
 
 
-	if (answers[17].choice.id == "CcbZPmvlpu8Z") {
-		execution += 0.5*execution_16;
-		agency -= 4;
-		awareness -= 4;
-	} else if (answers[17].choice.id == "gQxOAgy6fItp") {
-		planning -= 2;
-		execution += 0.4*execution_16;
-		awareness += 2;
-	}  else if (answers[17].choice.id == "CDjJAQ1aDPh3") {
-		planning += 2;
-		execution += 2*execution_16;
-		awareness += 2;
-	}  else if (answers[17].choice.id == "lQAhF98IxEgI") {
-		planning += 3;
-		execution += 1*execution_16;
+	if (!answers[16].choices.ids.includes("pCBAysBorEvE")) {
+		if (answers[17].choice.id == "CcbZPmvlpu8Z") {
+			execution += 0.5*execution_16;
+			agency -= 4;
+			awareness -= 4;
+		} else if (answers[17].choice.id == "gQxOAgy6fItp") {
+			planning -= 2;
+			execution += 0.4*execution_16;
+			awareness += 2;
+		}  else if (answers[17].choice.id == "CDjJAQ1aDPh3") {
+			planning += 2;
+			execution += 2*execution_16;
+			awareness += 2;
+		}  else if (answers[17].choice.id == "lQAhF98IxEgI") {
+			planning += 3;
+			execution += 1*execution_16;
+		}
 	}
 
 
