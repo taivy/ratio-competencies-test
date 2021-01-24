@@ -8,6 +8,12 @@ const canvasRenderService = new CanvasRenderService(width, height, (ChartJS) => 
 
 
 
+function transparentize(color, opacity) {
+	var Color = Chart.helpers.color;
+	var alpha = opacity === undefined ? 0.5 : 1 - opacity;
+	return Color(color).alpha(alpha).rgbString();
+}
+
 exports.getTestResultsChart = async function(resultsArray) {
 	const options = {
 	    scale: {
@@ -34,10 +40,10 @@ exports.getTestResultsChart = async function(resultsArray) {
 	    data: {
 		    labels: ['Планирование', 'Исполнение', 'Общение', 'Самообучение', 'Агентность', 'Осознанность', 'Оценки'],
 		    datasets: [{
-		    	fill: '#c0d3ff',
 		    	label: '',
 		        data: resultsArray,
-		        backgroundColor: '#759eff',
+		        backgroundColor: transparentize('#759eff'),
+		        borderColor: '#759eff',
 		        spanGaps: true
 		    }]
 	    },
