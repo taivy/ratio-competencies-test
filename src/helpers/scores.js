@@ -1,6 +1,11 @@
 import Chart from 'chart.js';
+import { CanvasRenderingContext2D, CanvasPattern, CanvasGradient } from "canvas";
 const { CanvasRenderService } = require('chartjs-node-canvas');
 
+
+global.CanvasRenderingContext2D = CanvasRenderingContext2D;
+global.CanvasPattern = CanvasPattern;
+global.CanvasGradient = CanvasGradient;
 
 const width = 400; //px
 const height = 400; //px
