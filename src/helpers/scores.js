@@ -9,26 +9,36 @@ const canvasRenderService = new CanvasRenderService(width, height, (ChartJS) => 
 
 
 exports.getTestResultsChart = async function(resultsArray) {
-	const options = {};
-	/*
 	const options = {
 	    scale: {
 	        angleLines: {
-	            display: false
+	            display: true
 	        },
 	        ticks: {
-	            suggestedMin: 50,
+	            suggestedMin: 0,
 	            suggestedMax: 100
+	        }
+	    },
+	    legend: {
+	      display: false,
+	        labels: {
+	          display: false
 	        }
 	    }
 	};
+	/*
+
 	*/
     const configuration = {
 	    type: 'radar',
 	    data: {
 		    labels: ['Планирование', 'Исполнение', 'Общение', 'Самообучение', 'Агентность', 'Осознанность', 'Оценки'],
 		    datasets: [{
-		        data: resultsArray
+		    	fill: '#c0d3ff',
+		    	label: '',
+		        data: resultsArray,
+		        backgroundColor: '#759eff',
+		        spanGaps: true
 		    }]
 	    },
 	    options: options

@@ -29,7 +29,7 @@ exports.getResults = function(req, res) {
 
   fetch(url + urlParams.toString(), config).then((resp) => {
   	console.log("resp", resp)
-  	resp.json().then((data) => {
+  	resp.json().then(async (data) => {
   		console.log("data", data)
   		if (data.items.length === 0) {
   			return response.sendBadRequest(res, "No answers found");
@@ -37,10 +37,11 @@ exports.getResults = function(req, res) {
 		console.log("data.items[0]", data.items[0]);
 
   		const scores = calcScores(data["items"][0]["answers"]);
+  		console.log("scores", scores);
   		const normalizedScores = normalizeTestResults(scores);
   		let [planning, execution, communication, learning, agency, awareness, estimations] = normalizedScores;
-  		console.log(" [planning, execution, communication, learning, agency, awareness, estimations]",  [planning, execution, communication, learning, agency, awareness, estimations])
-  		const resultsChart = getTestResultsChart(normalizedScores);
+  		console.log("normalized [planning, execution, communication, learning, agency, awareness, estimations]",  [planning, execution, communication, learning, agency, awareness, estimations])
+  		const resultsChart = await getTestResultsChart(normalizedScores);
   		console.log("resultsChart",  resultsChart);
   		res.json({ resultsChart: resultsChart });
   	})
