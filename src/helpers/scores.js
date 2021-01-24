@@ -37,9 +37,6 @@ exports.getTestResultsChart = async function(resultsArray) {
 	        }
 	    }
 	};
-	/*
-
-	*/
     const configuration = {
 	    type: 'radar',
 	    data: {
