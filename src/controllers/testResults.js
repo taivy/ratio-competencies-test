@@ -36,7 +36,11 @@ exports.getResults = function(req, res) {
   		}
 		console.log("data.items[0]", data.items[0]);
 
-  		const scores = calcScores(data["items"][0]["answers"]);
+      const answers = data["items"][0]["answers"];
+  		const scores = calcScores(answers);
+      const name = answers[0]["text"];
+      const email = answers[36]["text"];
+
   		console.log("scores", scores);
   		const normalizedScores = normalizeTestResults(scores);
   		let [planning, execution, communication, learning, agency, awareness, estimations] = normalizedScores;
