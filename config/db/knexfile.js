@@ -7,11 +7,11 @@ module.exports = {
         acquireConnectionTimeout: 10000,
         debug: true,
         migrations: {
-            directory: './db/migrations',
+            directory: './migrations',
             tableName: 'knex_migrations'
         },
         seeds: {
-            directory: './db/seeds/prod'
+            directory: './seeds/prod'
         }
     }
 };
