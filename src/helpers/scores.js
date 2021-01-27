@@ -738,6 +738,20 @@ exports.calcScores = function(answers) {
 		awareness += 6;
 		estimations += 4;
 	}  else if (answers[31].choice.id == "xxZLQLbRiuX6") {
+	}
+
+
+	if (answers[33].choice.id == "laBiWzaUZjaC") {
+		planning += 1;
+		execution += 2;
+		learning += 6;
+		awareness += 12;
+		estimations += 20;
+	} else if (answers[33].choice.id == "BtMp1neFZxWz") {
+		execution += 1;
+		learning += 3;
+		estimations += 8;
+	}  else if (answers[33].choice.id == "2s9rghPVzYij") {
 		awareness -= 4;
 		estimations -= 3;
 	}
