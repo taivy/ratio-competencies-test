@@ -1,0 +1,2 @@
+migrate:
+	npm run migrate
