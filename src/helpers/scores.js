@@ -12,7 +12,6 @@ const height = 400; //px
 const canvasRenderService = new CanvasRenderService(width, height, (ChartJS) => { });
 
 
-
 function transparentize(color, opacity) {
 	var Color = Chart.helpers.color;
 	var alpha = opacity === undefined ? 0.5 : 1 - opacity;
