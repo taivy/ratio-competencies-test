@@ -58,13 +58,13 @@ exports.getTestResultsChart = async function(resultsArray) {
 
 exports.normalizeTestResults = function(resultsArray) {
 	let [planning, execution, communication, learning, agency, awareness, estimations] = resultsArray;
-	const max_planning = 228;
-	const max_execution = 171;
-	const max_communication = 56;
-	const max_learning = 108;
-	const max_agency = 272;
-	const max_awareness = 222;
-	const max_estimations = 82;
+	const max_planning = 159,5;
+	const max_execution = 122;
+	const max_communication = 105;
+	const max_learning = 78;
+	const max_agency = 201;
+	const max_awareness = 156;
+	const max_estimations = 71;
 
 	const planning_normalized = Math.round(100*planning/max_planning);
 	const execution_normalized = Math.round(100*execution/max_execution);
