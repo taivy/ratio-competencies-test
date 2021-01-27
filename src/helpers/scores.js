@@ -58,21 +58,35 @@ exports.getTestResultsChart = async function(resultsArray) {
 
 exports.normalizeTestResults = function(resultsArray) {
 	let [planning, execution, communication, learning, agency, awareness, estimations] = resultsArray;
+	
 	const max_planning = 159,5;
-	const max_execution = 122;
-	const max_communication = 105;
-	const max_learning = 78;
-	const max_agency = 201;
-	const max_awareness = 156;
-	const max_estimations = 71;
+	const min_planning = 159,5;
 
-	const planning_normalized = Math.round(100*planning/max_planning);
-	const execution_normalized = Math.round(100*execution/max_execution);
-	const communication_normalized = Math.round(100*communication/max_communication);
-	const learning_normalized = Math.round(100*learning/max_learning);
-	const agency_normalized = Math.round(100*agency/max_agency);
-	const awareness_normalized = Math.round(100*awareness/max_awareness);
-	const estimations_normalized = Math.round(100*estimations/max_estimations);
+	const max_execution = 122;
+	const min_execution = 122;
+
+	const max_communication = 105;
+	const min_communication = 105;
+
+	const max_learning = 78;
+	const min_learning = 78;
+
+	const max_agency = 201;
+	const min_agency = 201;
+
+	const max_awareness = 156;
+	const min_awareness = 156;
+
+	const max_estimations = 71;
+	const min_estimations = 71;
+
+	const planning_normalized = Math.round(100*(planning-min_planning)/max_planning);
+	const execution_normalized = Math.round(100*(execution-min_execution)/max_execution);
+	const communication_normalized = Math.round(100*(communication-min_communication)/max_communication);
+	const learning_normalized = Math.round(100*(learning-min_learning)/max_learning);
+	const agency_normalized = Math.round(100*(agency-min_agency)/max_agency);
+	const awareness_normalized = Math.round(100*(awareness-min_awareness)/max_awareness);
+	const estimations_normalized = Math.round(100*(estimations-min_estimations)/max_estimations);
 
 	return [planning_normalized, execution_normalized, communication_normalized, learning_normalized, 
 	agency_normalized, awareness_normalized, estimations_normalized]
