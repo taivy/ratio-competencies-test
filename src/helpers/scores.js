@@ -58,8 +58,8 @@ exports.getTestResultsChart = async function(resultsArray) {
 exports.normalizeTestResults = function(resultsArray) {
 	let [planning, execution, communication, learning, agency, awareness, estimations] = resultsArray;
 	
-	const max_planning = 159,5;
-	const min_planning = 159,5;
+	const max_planning = 159.5;
+	const min_planning = 159.5;
 
 	const max_execution = 122;
 	const min_execution = 122;

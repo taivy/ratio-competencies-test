@@ -6,7 +6,8 @@
   "scripts": {
     "start": "export NODE_ENV=dev NODE_CONFIG_DIR=./src/config/ && nodemon -w src --exec \"babel-node src/app.js --presets es2015,stage-0\"",
     "test": "export NODE_ENV=test NODE_CONFIG_DIR=./src/config/ && mocha --timeout 10000 --compilers js:babel-core/register ./src/test/*.js ",
-    "populatedb": "babel-node --presets es2015 ./node_modules/pow-mongodb-fixtures/bin/mongofixtures node-express-skeleton-dev ./src/test/fixtures"
+    "knex": "knex --knexfile src/config/db/knexfile.js",
+    "migrate": "npm run knex migrate:latest"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,8 @@
     "express": "^4.15.3",
     "knex": "^0.21.16",
     "morgan": "^1.8.2",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "pg": "^8.5.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

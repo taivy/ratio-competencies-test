@@ -18,10 +18,10 @@ services:
       - POSTGRES_PASSWORD=ratio_test
       - POSTGRES_DB=ratio_test
 
-  api:
+  server:
     build:
       context: ./
-      dockerfile: ./docker/api/Dockerfile
+      dockerfile: ./Dockerfile
     environment:
       - NODE_ENV=dev
       #- DB_HOST=db

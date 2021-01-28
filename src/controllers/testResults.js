@@ -1,7 +1,31 @@
 import response from '../helpers/response';
 import {calcScores, normalizeTestResults, getTestResultsChart} from '../helpers/scores';
-
+import knex from '../config/db/knexInstance';
 const fetch = require('node-fetch');
+
+
+function saveResults(normalizedScores, name, email, response_id, referer) {
+  const [planning, execution, communication, learning, agency, awareness, estimations] = normalizedScores;
+  const submitted_at = Date.now();
+  results = [
+    {
+      "name": name,
+      "email": email,
+      "planning": planning,
+      "execution": execution,
+      "communication": communication,
+      "learning": learning,
+      "agency": agency,
+      "awareness": awareness,
+      "estimations": estimations,
+      "response_id": response_id,
+      "referer": referer,
+      "submitted_at": submitted_at
+    }
+  ]
+  knex('results').insert(cars).then(() => console.log("data inserted"))
+    .catch((err) => { console.log(err); throw err });
+}
 
 
 exports.getResults = function(req, res) {
@@ -40,11 +64,14 @@ exports.getResults = function(req, res) {
   		const scores = calcScores(answers);
       const name = answers[0]["text"];
       const email = answers[36]["text"];
+      const response_id = data["items"][0]["response_id"];
+      const referer = data["items"][0]["metadata"]["referer"];
 
   		console.log("scores", scores);
   		const normalizedScores = normalizeTestResults(scores);
   		let [planning, execution, communication, learning, agency, awareness, estimations] = normalizedScores;
-  		console.log("normalized [planning, execution, communication, learning, agency, awareness, estimations]",  [planning, execution, communication, learning, agency, awareness, estimations])
+  		console.log("normalized [planning, execution, communication, learning, agency, awareness, estimations]",  [planning, execution, communication, learning, agency, awareness, estimations]);
+      saveResults(normalizedScores, name, email, response_id, referer);
   		const resultsChart = await getTestResultsChart(normalizedScores);
   		console.log("resultsChart",  resultsChart);
   		res.json({ resultsChart: resultsChart });
