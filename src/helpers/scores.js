@@ -107,15 +107,15 @@ exports.calcScores = function(answers) {
 
 	if (answers[1].choice.id === "DWKyOsVeEoZE") {
 		for (let i=0; i<4; i++) {
-			answers.splice(1, 0, mockedAnswer);
+			answers.splice(2, 0, mockedAnswer);
 		}
 		console.log("answers after cycle", answers);
 	} else {
-		answers.splice(5, 0, mockedAnswer);
+		answers.splice(6, 0, mockedAnswer);
 	}
 
 	if (answers[17].choices.ids.includes("pCBAysBorEvE")) {
-		answers.splice(17, 0, mockedAnswer);
+		answers.splice(18, 0, mockedAnswer);
 	}
 
 
@@ -170,7 +170,6 @@ exports.calcScores = function(answers) {
 			execution -= 1;
 		}
 		planning += planning_2;
-
 
 		if (answers[3].choice.id == "3lI8N1okry8Q") {
 			planning += planning_2*0.3;

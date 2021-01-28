@@ -36,6 +36,4 @@ services:
 
 networks:
   app:
-    name: app
-    attachable: true
     driver: bridge
