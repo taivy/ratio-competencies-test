@@ -73,7 +73,6 @@ exports.getResults = function(req, res) {
   		console.log("normalized [planning, execution, communication, learning, agency, awareness, estimations]",  [planning, execution, communication, learning, agency, awareness, estimations]);
       saveResults(normalizedScores, name, email, response_id, referer);
   		const resultsChart = await getTestResultsChart(normalizedScores);
-  		console.log("resultsChart",  resultsChart);
   		res.json({ resultsChart: resultsChart });
   	})
   }).catch((err) => {
