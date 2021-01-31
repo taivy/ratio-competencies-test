@@ -59,25 +59,25 @@ exports.normalizeTestResults = function(resultsArray) {
 	let [planning, execution, communication, learning, agency, awareness, estimations] = resultsArray;
 	
 	const max_planning = 159.5;
-	const min_planning = 159.5;
+	const min_planning = -15;
 
 	const max_execution = 122;
-	const min_execution = 122;
+	const min_execution = -25;
 
 	const max_communication = 105;
-	const min_communication = 105;
+	const min_communication = -23;
 
 	const max_learning = 78;
-	const min_learning = 78;
+	const min_learning = -11;
 
 	const max_agency = 201;
-	const min_agency = 201;
+	const min_agency = -28;
 
 	const max_awareness = 156;
-	const min_awareness = 156;
+	const min_awareness = -19;
 
 	const max_estimations = 71;
-	const min_estimations = 71;
+	const min_estimations = -13;
 
 	const planning_normalized = Math.round(100*(planning-min_planning)/max_planning);
 	const execution_normalized = Math.round(100*(execution-min_execution)/max_execution);
