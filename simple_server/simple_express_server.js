@@ -1,8 +1,7 @@
 var express = require('express');
 
 var server = express();
-server.configure(function(){
-  server.use(express.static(__dirname + '/public'));
-});
+server.use(express.static(__dirname + '/public'));
 
-server.listen(3000);
+server.listen(3001);
+console.log("1!!1!!1!!")
