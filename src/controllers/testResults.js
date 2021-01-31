@@ -7,7 +7,7 @@ const fetch = require('node-fetch');
 function saveResults(normalizedScores, name, email, response_id, referer) {
   const [planning, execution, communication, learning, agency, awareness, estimations] = normalizedScores;
   const submitted_at = Date.now();
-  results = [
+  const results = [
     {
       "name": name,
       "email": email,
@@ -23,7 +23,7 @@ function saveResults(normalizedScores, name, email, response_id, referer) {
       "submitted_at": submitted_at
     }
   ]
-  knex('results').insert(cars).then(() => console.log("data inserted"))
+  knex('results').insert(results).then(() => console.log("data inserted"))
     .catch((err) => { console.log(err); throw err });
 }
 
