@@ -149,6 +149,7 @@ exports.calcScores = function(answers) {
 	}
 	planning += planning_1;
 
+	let planning_4;
 	if (answers[1].choice.id !== "DWKyOsVeEoZE") {
 		let planning_2;
 		if (answers[2].choice.id == "DdZVCnyQCMf0") {
@@ -184,8 +185,6 @@ exports.calcScores = function(answers) {
 			planning += planning_2*2;
 		}
 
-
-		let planning_4;
 		if (answers[4].choice.id == "4G1IswrlK8DW") {
 			planning_4 = 1;
 			planning += planning_4;
@@ -242,22 +241,22 @@ exports.calcScores = function(answers) {
 		}
 	} else {
 		let planning_7 = 0;
-		if (answers[6].choices.ids.includes("YGcSE2eplNuG")) {
+		if (answers[7].choices.ids.includes("YGcSE2eplNuG")) {
 			planning_7 += 2;
 			execution += 2;
 		}
-		if (answers[6].choices.ids.includes("SmQZpTwyF7Eo")) {
+		if (answers[7].choices.ids.includes("SmQZpTwyF7Eo")) {
 			planning_7 += 1;
 		}
-		if (answers[6].choices.ids.includes("oViWGTEf8TUJ")) {
+		if (answers[7].choices.ids.includes("oViWGTEf8TUJ")) {
 			planning_7 += 2;
 			agency -= 2;
 			estimations += 3;
 		}
-		if (answers[6].choices.ids.includes("iqlJNwXUIqT0")) {
+		if (answers[7].choices.ids.includes("iqlJNwXUIqT0")) {
 			planning_7 += 1;
 		}
-		if (answers[6].choices.ids.includes("ZrqsCKl9UMxV")) {
+		if (answers[7].choices.ids.includes("ZrqsCKl9UMxV")) {
 			planning_7 += 1;
 			learning -= 4;
 			agency -= 4;
