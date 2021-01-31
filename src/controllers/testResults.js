@@ -6,7 +6,7 @@ const fetch = require('node-fetch');
 
 function saveResults(normalizedScores, name, email, response_id, referer) {
   const [planning, execution, communication, learning, agency, awareness, estimations] = normalizedScores;
-  const submitted_at = Date.now();
+  const submitted_at = Math.round(Date.now() / 1000);
   const results = [
     {
       "name": name,
