@@ -35,4 +35,7 @@ window.addEventListener("DOMContentLoaded", function() {
       }, 1000)
     }
   });
+
+  el.children[0].style.width = "100%";
+
 });
