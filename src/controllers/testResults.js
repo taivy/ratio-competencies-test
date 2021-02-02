@@ -28,6 +28,7 @@ function saveResults(normalizedScores, name, email, response_id, referer) {
 }
 
 
+
 exports.getResults = function(req, res) {
   const form_id = process.env.FORM_ID;
   const token = process.env.TF_API_TOKEN;
