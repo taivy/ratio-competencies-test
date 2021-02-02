@@ -6,7 +6,7 @@
 
 ```
 <script src="https://embed.typeform.com/embed.js"></script>
-<script src="http://64.227.43.113:3001/script_minified.js"></script>
+<script src="https://pay.zaresh.ai/static/script_minified.js"></script>
 ```
 
 И на странице должен быть элемент с id ratio-competence-test, например
