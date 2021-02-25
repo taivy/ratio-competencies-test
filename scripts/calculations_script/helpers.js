@@ -29,7 +29,7 @@ exports.saveResults = function(normalizedScores, name, email, response_id, refer
       "submitted_at": submitted_at
     }
   ]
-  knexInstance.knex('results').insert(results).then(() => console.log("data inserted"))
+  knexInstance('results').insert(results).then(() => console.log("data inserted"))
     .catch((err) => { console.log(err); throw err });
 }
 
