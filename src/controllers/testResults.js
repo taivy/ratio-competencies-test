@@ -1,5 +1,5 @@
 import response from '../helpers/response';
-import {calcScores, normalizeTestResults, getTestResultsChart} from '../helpers/scores';
+import {calcScores, normalizeTestResults, getTestResultsChart, updateSpreadsheet} from '../helpers/scores';
 import knex from '../config/db/knexInstance';
 const fetch = require('node-fetch');
 
@@ -73,6 +73,7 @@ exports.getResults = function(req, res) {
   		let [planning, execution, communication, learning, agency, awareness, estimations] = normalizedScores;
   		console.log("normalized [planning, execution, communication, learning, agency, awareness, estimations]",  [planning, execution, communication, learning, agency, awareness, estimations]);
       saveResults(normalizedScores, name, email, response_id, referer);
+      updateSpreadsheet(planning, execution, communication, learning, agency, awareness, estimations, name, email, response_id);
   		const resultsChart = await getTestResultsChart(normalizedScores);
   		res.json({ resultsChart: resultsChart });
   	})

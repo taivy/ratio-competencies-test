@@ -1,6 +1,8 @@
 import Chart from 'chart.js';
 import { CanvasRenderingContext2D, CanvasPattern, CanvasGradient } from "canvas";
 const { CanvasRenderService } = require('chartjs-node-canvas');
+const GoogleSpreadsheet = require('google-spreadsheet')
+
 
 
 global.CanvasRenderingContext2D = CanvasRenderingContext2D;
@@ -768,4 +770,31 @@ exports.calcScores = function(answers) {
 	return [planning, execution, communication, learning, agency, 
 	awareness, estimations];
 
+}
+
+
+exports.updateSpreadsheet = function(planning, execution, communication, learning, agency, 
+	awareness, estimations, name, email, response_id) {
+    var creds = require('./credentials.json');
+    const GOOGLE_SPREADSHEET_ID = "1ypE-FluTsGWnkcpDnKTNFDhQqhmJhp4q3pH3-pdt21Y";
+    var doc = new GoogleSpreadsheet(GOOGLE_SPREADSHEET_ID);
+    doc.useServiceAccountAuth(creds, function (err) {
+      if (err) console.log(err);
+      doc.getInfo(function (err, info) {
+        console.log('Loaded doc: ' + info.title + ' by ' + info.author.email);
+        sheet = info.worksheets[21];
+        console.log('sheet #1: ' + sheet.title + ' ' + sheet.rowCount + 'x' + sheet.colCount);
+
+        var newrow = {
+            planning, execution, communication, learning, agency, 
+            awareness, estimations, name, email, response_id
+        };
+        console.log("newrow", newrow);
+        doc.addRow(sheet.rowCount+1, newrow, function( err, rows ){
+            if (err) console.log(err);
+            console.log(rows);
+
+          });
+      })
+    })
 }
