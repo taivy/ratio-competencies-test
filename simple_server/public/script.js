@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", function() {
   const el = document.getElementById("ratio-competence-test");
-  const formUrl = "https://kpbwd338my8.typeform.com/to/Edtmnimf";
+  const formUrl = "https://kpbwd338my8.typeform.com/to/Edtmnimf?typeform-welcome=0";
   
   window.typeformEmbed.makeWidget(el, formUrl, {
     hideFooter: false,
@@ -37,5 +37,10 @@ window.addEventListener("DOMContentLoaded", function() {
   });
 
   el.children[0].style.width = "100%";
+
+  const iframeId = "ratio-competence-test-iframe";
+  // set id for iframe
+  el.children[0].children[0].children[0].id = iframeId;
+  el.children[0].children[0].children[0].name = iframeId;
 
 });

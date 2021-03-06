@@ -41,6 +41,7 @@ async function main() {
 	console.log("scores", scores);
 	const normalizedScores = helpers.normalizeTestResults(scores);
 	let [planning, execution, communication, learning, agency, awareness, estimations] = normalizedScores;
+    helpers.updateSpreadsheet(planning, execution, communication, learning, agency, awareness, estimations, name, email, response_id);
 	console.log("normalized [planning, execution, communication, learning, agency, awareness, estimations]",  [planning, execution, communication, learning, agency, awareness, estimations]);
 	helpers.saveResults(normalizedScores, name, email, response_id, referer);
 }
