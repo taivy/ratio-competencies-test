@@ -775,14 +775,30 @@ exports.calcScores = function(answers) {
 
 exports.updateSpreadsheet = function(planning, execution, communication, learning, agency, 
 	awareness, estimations, name, email, response_id) {
-    var creds = require('./credentials.json');
+    // var creds = require('./credentials.json');
+    //const creds = {"installed":{"client_id":"513845486574-3gsb866q6km9gf7ob4hee3ik4ssv7ekn.apps.googleusercontent.com","project_id":"polinas-default--1614231540531","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://oauth2.googleapis.com/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"_9vcKxJR8hqzIQ9oGGF5Kqir","redirect_uris":["urn:ietf:wg:oauth:2.0:oob","http://localhost"]}}
+    //console.log(creds)
     const GOOGLE_SPREADSHEET_ID = "1ypE-FluTsGWnkcpDnKTNFDhQqhmJhp4q3pH3-pdt21Y";
-    var doc = new GoogleSpreadsheet(GOOGLE_SPREADSHEET_ID);
+
+    const creds = {
+	  "type": "service_account",
+	  "project_id": "auint-306021",
+	  "private_key_id": "ced0090d3a0c71723344753653dbd63ade9d3cc8",
+	  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCZeb8Nua2jYIJj\nFDYq3QLOHGPMeXM4DVBhAAVBGhETXfFje2D4UFfv3np1viFI8qkj3v02sxBNFN5/\nXuDYbPLIHjth2zd9LJyLOvMBzUbKk+1hKNdvJ12Td/joLXMy4FCOHNj7g+UXYDqE\nxjekKj8OwIJvj7tezuITBOvrZaLkWdEeeVzyCCmJIZvbexM0Y6UM4eM8xD4uNwhd\n7e3I3H5SDlBbUj7JtGQkgJYTtBEb/0h3mjESW7JFC22x0QHeumteZGq3DZCZg+jQ\nbbesGwUt5E9kkg20zngKJo3ZvEvnIvSufDkKx00907GsAfz323vrt+QDODTw0qGg\nB8kMbOSjAgMBAAECggEAGHofxoccp9KpCOHnf6+O684AUVNJ/8sJIjyYGe7CgWsO\nqAs8hxh9OzQpe2TO4deoXSBfvwe7llI5PWl62lmJ4PEIDyPLYOsqrlPrqhe8mMC9\n76x4AMdvolN/KZGyGTpIRASwIHDuf8C+TysJIxAFIuEAtzKJCLuzDPh7IyhVsdhX\n8EODNsrKmLgpBwkpl8jxDoF6BLVp+uU24ObqoOoykoAltao2gjavhvoA4A2umkq/\n8kuz2dlrWxUm8UnPw0m6F1E56qMiqWFELStW1tScyxXc+QjmkEkPVNRZwW+6syFP\ngy6VWTnJmPmKMP8paTs2DSNR6y+d3vqr7CRXlyEYQQKBgQDR335mFDziPRfGV0gv\n7yLvDQfuA5HRyPQS147D7hCOd4waDdRSG4CTnj5tqDKB8ZVrj9NFwr7uR5xgA24F\nk+ES5uKvsLIyNT8diS16y8Bgm8G3xiaZ8mwyr8AsMN4x/uS3RL1AD9Pth0eKvUV7\nazNxKpnvf+g4e+NXKbM9PjrsYwKBgQC7NQzAImr8GcHS9MpVjMQa4JTv9xn4nrVG\nfHYbsJvBoJDxfMS5XtRgqcBeELs1+QHuYj6DOozipG+YgqlJNnrJdkdIFbEpreYs\niBUPtDQRc50VAbpQ0wcQ57N3LnmF++LJDrJdyLFYqkDAeKQcE08sD0rKmRClpyS0\nDM1CkLj6wQKBgQCwnqYv394xAvrsFu4QMO60QMIoouZnpvcImFF0P/e8/YxxLKw/\nARgeovCktgTzaEy3/YzuS2sE+kz2XEyN8xpaHuYstsXwDPF1uMkGa0wVwV6wethn\nfCVkLpXKWsHTT1BJj1a4/9j5L3ycnJZJvDjJhvGPJZRXXKNA6j4GT0WlQwKBgAXL\nAnX/mqfqdCD/CjPTg04BnRo/30HeR2XC/DSnJmq7eUC/x6ak1JWZKya+Bc0Jw5GI\n4L5W1X098WYaxPpLAUmyq0oDwdO0WecO3vf5b5MKrNW1k/pkTVesk9UgTwpiXQYz\nujlEuJgxzIcoNIvZ3R1T69CRI/68SVp4+vEQYWkBAoGAfl19KaQUy56IAPMC4Oyf\nV3A4DjsCOTRRe+lk6xKPT9rt3Oyn6woYKYz8MTQoZVH5A0BBUYytwYj7k4Tj/kmh\nqObzSF5g8hTKzrLz7JbstOhawumwVRWtkBYNkQ53tblal2P3Cb/zE7vZ6gLFxCjI\nPEK+cVMy4MO1iGOjX1RX9zc=\n-----END PRIVATE KEY-----\n",
+	  "client_email": "sv-acc-1@auint-306021.iam.gserviceaccount.com",
+	  "client_id": "110639070284917553233",
+	  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+	  "token_uri": "https://oauth2.googleapis.com/token",
+	  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+	  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sv-acc-1%40auint-306021.iam.gserviceaccount.com"
+	}
+
+	var doc = new GoogleSpreadsheet(GOOGLE_SPREADSHEET_ID);
     doc.useServiceAccountAuth(creds, function (err) {
       if (err) console.log(err);
       doc.getInfo(function (err, info) {
         console.log('Loaded doc: ' + info.title + ' by ' + info.author.email);
-        sheet = info.worksheets[21];
+        let sheet = info.worksheets[0];
         console.log('sheet #1: ' + sheet.title + ' ' + sheet.rowCount + 'x' + sheet.colCount);
 
         var newrow = {
@@ -790,7 +806,7 @@ exports.updateSpreadsheet = function(planning, execution, communication, learnin
             awareness, estimations, name, email, response_id
         };
         console.log("newrow", newrow);
-        doc.addRow(sheet.rowCount+1, newrow, function( err, rows ){
+        sheet.addRow(newrow, function( err, rows ){
             if (err) console.log(err);
             console.log(rows);
 
