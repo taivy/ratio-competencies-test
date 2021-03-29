@@ -2,10 +2,10 @@ window.addEventListener("DOMContentLoaded", function() {
   const el = document.getElementById("ratio-competence-test");
   const formUrl = "https://kpbwd338my8.typeform.com/to/Edtmnimf";
   
-  window.typeformEmbed.makePopup(formUrl, {
+  const popup = window.typeformEmbed.makePopup(formUrl, {
     hideFooter: false,
     hideHeaders: true,
-    autoOpen: true,
+    autoOpen: false,
     mode: 'popup',
     onSubmit: function (event) {
       console.log('Typeform successfully submitted')
@@ -35,6 +35,10 @@ window.addEventListener("DOMContentLoaded", function() {
         })
       }, 1000)
     }
+  });
+
+  document.getElementById('bt-popup').addEventListener('click', function () {
+    popup.open();
   });
 
 
