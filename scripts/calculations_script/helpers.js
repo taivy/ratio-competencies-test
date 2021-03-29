@@ -1,4 +1,5 @@
 // import knex from './knexInstance';
+const GoogleSpreadsheet = require('google-spreadsheet')
 var knexInstance = require('./knexInstance');
 
 
