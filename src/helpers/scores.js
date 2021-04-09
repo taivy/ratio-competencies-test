@@ -98,29 +98,6 @@ exports.calcScores = function(answers) {
 	console.log("answers", answers);
 	let [planning, execution, communication, learning, agency, awareness, estimations] = [0, 0, 0, 0, 0, 0, 0];
 
-	const mockedAnswer = { 
-		field:
-	      { id: ''},
-	    type: 'choice',
-	    choice: 
-	      { id: '', 
-	        label: '' } 
-	}
-
-	if (answers.get("01EWFVBMK4P8GFSCMYESCWMC4P").choice.id === "DWKyOsVeEoZE") {
-		for (let i=0; i<4; i++) {
-			answers.splice(2, 0, mockedAnswer);
-		}
-		console.log("answers after cycle", answers);
-	} else {
-		answers.splice(6, 0, mockedAnswer);
-	}
-
-	if (choicesIds.includes("pCBAysBorEvE")) {
-		answers.splice(18, 0, mockedAnswer);
-	}
-
-
 	if (answers.has("01EWFVBMK4P8GFSCMYESCWMC4P")) {
 
 		let planning_1;
@@ -546,7 +523,6 @@ exports.calcScores = function(answers) {
 
 	if (answers.has("284c2d17-3da4-4e8f-a3b0-6c63cf3058bf")) {
 		const choicesIds = answers.get("284c2d17-3da4-4e8f-a3b0-6c63cf3058bf").choices.ids;
-		if (choicesIds.includes("ZIOz25cFqhfD")) {
 		if (choicesIds.includes("nvkzfhpwNroh")) {
 			planning += 1;
 			execution += 2;

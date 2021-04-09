@@ -63,14 +63,15 @@ exports.getResults = function(req, res) {
       const answers = data["items"][0]["answers"];
       // keys are answers refs, values are answers details
       const dataMap = new Map();
-      data.forEach((answer) => {
+      answers.forEach((answer) => {
         const key = answer["field"]["ref"];
         dataMap.set(key, answer);
       })
 
   		const scores = calcScores(dataMap);
-      const name = answers[0]["text"];
-      const email = answers[36]["text"];
+
+      const name = dataMap.get("fb3c633b-af08-41d1-9dce-5ee11ae205db")["text"];
+      const email = dataMap.get("2c06d7fe-ba51-4e82-abe1-adb8cc897cf2")["text"];
       const response_id = data["items"][0]["response_id"];
       const referer = data["items"][0]["metadata"]["referer"];
 
