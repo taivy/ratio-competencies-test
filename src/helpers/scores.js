@@ -878,9 +878,15 @@ exports.updateSpreadsheet = function(planning, execution, communication, learnin
         let sheet = info.worksheets[0];
         console.log('sheet #1: ' + sheet.title + ' ' + sheet.rowCount + 'x' + sheet.colCount);
 
+		const now = new Date();
+		const date = now.getFullYear()+'.'+(now.getMonth()+1)+'.'+now.getDate();
+		const time = now.getHours()+':'+now.getMinutes()+':'+now.getSeconds();
+        const nowString = date + ' '+ time;
+
         var newrow = {
             planning, execution, communication, learning, agency, 
-            awareness, estimations, name, email, response_id
+            awareness, estimations, name, email, response_id, 
+            time: nowString
         };
         console.log("newrow", newrow);
         sheet.addRow(newrow, function( err, rows ){
