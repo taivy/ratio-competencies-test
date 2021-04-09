@@ -58,10 +58,17 @@ exports.getResults = function(req, res) {
   		if (data.items.length === 0) {
   			return response.sendBadRequest(res, "No answers found");
   		}
-		console.log("data.items[0]", data.items[0]);
+		  console.log("data.items[0]", data.items[0]);
 
       const answers = data["items"][0]["answers"];
-  		const scores = calcScores(answers);
+      // keys are answers refs, values are answers details
+      const dataMap = new Map();
+      data.forEach((answer) => {
+        const key = answer["field"]["ref"];
+        dataMap.set(key, answer);
+      })
+
+  		const scores = calcScores(dataMap);
       const name = answers[0]["text"];
       const email = answers[36]["text"];
       const response_id = data["items"][0]["response_id"];

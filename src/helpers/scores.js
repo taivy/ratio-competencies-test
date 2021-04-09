@@ -107,7 +107,7 @@ exports.calcScores = function(answers) {
 	        label: '' } 
 	}
 
-	if (answers[1].choice.id === "DWKyOsVeEoZE") {
+	if (answers.get("01EWFVBMK4P8GFSCMYESCWMC4P").choice.id === "DWKyOsVeEoZE") {
 		for (let i=0; i<4; i++) {
 			answers.splice(2, 0, mockedAnswer);
 		}
@@ -116,149 +116,175 @@ exports.calcScores = function(answers) {
 		answers.splice(6, 0, mockedAnswer);
 	}
 
-	if (answers[17].choices.ids.includes("pCBAysBorEvE")) {
+	if (choicesIds.includes("pCBAysBorEvE")) {
 		answers.splice(18, 0, mockedAnswer);
 	}
 
 
-	let planning_1;
-	if (answers[1].choice.id == "Zkcyzjho0xDc") {
-		planning_1 = 3;
+	if (answers.has("01EWFVBMK4P8GFSCMYESCWMC4P")) {
+
+		let planning_1;
+		const choiceId = answers.get("01EWFVBMK4P8GFSCMYESCWMC4P").choice.id;
+		if (choiceId == "Zkcyzjho0xDc") {
+			planning_1 = 3;
+			planning += planning_1;
+			execution += 1;
+			learning += 1;
+			awareness += 6;
+		} else if (choiceId == "ZWaaVbkqnO5q") {
+			planning_1 = 3;
+			planning += planning_1;
+			execution += 1;
+			learning += 1;
+			awareness += 6;
+		}  else if (choiceId == "t04AoDXfj1UC") {
+			planning_1 = 1;
+			planning += planning_1;
+			execution += 1;
+			awareness += 6;
+		}  else if (choiceId == "LLu6oeYgHgsA") {
+			planning_1 = 1;
+			planning += planning_1;
+			execution += 1;
+			awareness += 6;
+		}  else if (choiceId == "DWKyOsVeEoZE") {
+			planning_1 = -3;
+			planning += planning_1;
+			execution += 1;
+		}
 		planning += planning_1;
-		execution += 1;
-		learning += 1;
-		awareness += 6;
-	} else if (answers[1].choice.id == "ZWaaVbkqnO5q") {
-		planning_1 = 3;
-		planning += planning_1;
-		execution += 1;
-		learning += 1;
-		awareness += 6;
-	}  else if (answers[1].choice.id == "t04AoDXfj1UC") {
-		planning_1 = 1;
-		planning += planning_1;
-		execution += 1;
-		awareness += 6;
-	}  else if (answers[1].choice.id == "LLu6oeYgHgsA") {
-		planning_1 = 1;
-		planning += planning_1;
-		execution += 1;
-		awareness += 6;
-	}  else if (answers[1].choice.id == "DWKyOsVeEoZE") {
-		planning_1 = -3;
-		planning += planning_1;
-		execution += 1;
 	}
-	planning += planning_1;
+
 
 	let planning_4;
-	if (answers[1].choice.id !== "DWKyOsVeEoZE") {
+	if (answers.has("01EWFVBMK4P8GFSCMYESCWMC4P") && answers.get("01EWFVBMK4P8GFSCMYESCWMC4P").choice.id !== "DWKyOsVeEoZE") {
+
 		let planning_2;
-		if (answers[2].choice.id == "DdZVCnyQCMf0") {
-			planning_2 = 3;
-			execution += 10;
-			agency += 2;
-		} else if (answers[2].choice.id == "RUJgZvn7HHAr") {
-			planning_2 = 2;
-			execution += 8;
-			agency += 2;
-			estimations += 2;
-		}  else if (answers[2].choice.id == "T8mtIq1QnRV4") {
-			planning_2 = -1;
-			execution += 3;
-			learning += 1;
-			agency += 2;
-		}  else if (answers[2].choice.id == "2an7uBsMdQoE") {
-			planning_2 = -3;
-			execution -= 1;
-		}
-		planning += planning_2;
-
-		if (answers[3].choice.id == "3lI8N1okry8Q") {
-			planning += planning_2*0.3;
-			awareness += 2;
-		} else if (answers[3].choice.id == "4ZGyjSM7iLw0") {
-			planning += planning_2*0.8;
-			awareness += 2;
-		}  else if (answers[3].choice.id == "7GX4HGrXFXHR") {
-			planning += planning_2*1.2;
-			awareness += 2;
-		}  else if (answers[3].choice.id == "qbz0Nu58WYzf") {
-			planning += planning_2*2;
+		if (answers.has("01EWFVBMNDJEXQZKJ1FPDZJ9KR")) {
+			const choiceId = answers.get("01EWFVBMNDJEXQZKJ1FPDZJ9KR").choice.id;
+			if (choiceId == "DdZVCnyQCMf0") {
+				planning_2 = 3;
+				execution += 10;
+				agency += 2;
+			} else if (choiceId == "RUJgZvn7HHAr") {
+				planning_2 = 2;
+				execution += 8;
+				agency += 2;
+				estimations += 2;
+			}  else if (choiceId == "T8mtIq1QnRV4") {
+				planning_2 = -1;
+				execution += 3;
+				learning += 1;
+				agency += 2;
+			}  else if (choiceId == "2an7uBsMdQoE") {
+				planning_2 = -3;
+				execution -= 1;
+			}
+			planning += planning_2;
 		}
 
-		if (answers[4].choice.id == "4G1IswrlK8DW") {
-			planning_4 = 1;
-			planning += planning_4;
-			execution += 1;
-		} else if (answers[4].choice.id == "mpIWsdEGX0Sq") {
-			planning_4 = 4;
-			planning += planning_4;
-			execution += 4;
-			agency += 2;
-		}  else if (answers[4].choice.id == "3HGMc7ZCwbQu") {
-			planning_4 = 10;
-			planning += planning_4;
-			execution += 10;
-			learning += 1;
-			agency += 2;
-		}  else if (answers[4].choice.id == "J5LW8gLRzmbn") {
-			planning_4 = 15;
-			planning += planning_4;
-			execution += 15;
-			learning += 1;
-			agency += 2;
+
+		if (answers.has("35d75188-0632-4180-8b18-bd01324667c5")) {
+			const choiceId = answers.get("35d75188-0632-4180-8b18-bd01324667c5").choice.id;
+			if (choiceId == "3lI8N1okry8Q") {
+				planning += planning_2*0.3;
+				awareness += 2;
+			} else if (choiceId == "4ZGyjSM7iLw0") {
+				planning += planning_2*0.8;
+				awareness += 2;
+			}  else if (choiceId == "7GX4HGrXFXHR") {
+				planning += planning_2*1.2;
+				awareness += 2;
+			}  else if (choiceId == "qbz0Nu58WYzf") {
+				planning += planning_2*2;
+			}
 		}
-		planning += planning_4;
+
+		if (answers.has("3d3a3e8e-8aca-40ac-b81d-466747ddd664")) {
+			const choiceId = answers.get("3d3a3e8e-8aca-40ac-b81d-466747ddd664").choice.id;
+			if (choiceId == "4G1IswrlK8DW") {
+				planning_4 = 1;
+				planning += planning_4;
+				execution += 1;
+			} else if (choiceId == "mpIWsdEGX0Sq") {
+				planning_4 = 4;
+				planning += planning_4;
+				execution += 4;
+				agency += 2;
+			}  else if (choiceId == "3HGMc7ZCwbQu") {
+				planning_4 = 10;
+				planning += planning_4;
+				execution += 10;
+				learning += 1;
+				agency += 2;
+			}  else if (choiceId == "J5LW8gLRzmbn") {
+				planning_4 = 15;
+				planning += planning_4;
+				execution += 15;
+				learning += 1;
+				agency += 2;
+			}
+			planning += planning_4;
+		}
 
 
-		if (answers[5].choice.id == "wivZk5ZtRd5T") {
-			learning -= 2;
-		} else if (answers[5].choice.id == "8NzXRTppA3ed") {
-			planning += 3;
-			agency += 3;
-			estimations += 2;
-		}  else if (answers[5].choice.id == "WYzK5qX4LMel") {
-			planning -= 2;
-			learning += 1;
-			agency += 2;
-		}  else if (answers[5].choice.id == "71QYrxvDBZ0g") {
-			planning += 3;
-			execution -= 2;
-			agency -= 4;
+		if (answers.has("73360e83-bc62-4b6e-b644-ea0a52109085")) {
+			const choiceId = answers.get("73360e83-bc62-4b6e-b644-ea0a52109085").choice.id;
+			if (choiceId == "wivZk5ZtRd5T") {
+				learning -= 2;
+			} else if (choiceId == "8NzXRTppA3ed") {
+				planning += 3;
+				agency += 3;
+				estimations += 2;
+			}  else if (choiceId == "WYzK5qX4LMel") {
+				planning -= 2;
+				learning += 1;
+				agency += 2;
+			}  else if (choiceId == "71QYrxvDBZ0g") {
+				planning += 3;
+				execution -= 2;
+				agency -= 4;
+			}
 		}
 	}
 
-	if (answers[1].choice.id === "DWKyOsVeEoZE") {
-		if (answers[6].choice.id == "AvnTLO0a6dhP") {
+
+	if (answers.has("ff4fdbb1-b076-4fc2-acda-a29d24b22675")) {
+		const choiceId = answers.get("ff4fdbb1-b076-4fc2-acda-a29d24b22675").choice.id;
+		if (choiceId == "AvnTLO0a6dhP") {
 			planning += 1*planning_1;
 			awareness += 2;
-		} else if (answers[6].choice.id == "X8V600e3yS2I") {
+		} else if (choiceId == "X8V600e3yS2I") {
 			planning += 30;
 			execution += 10;
-		}  else if (answers[6].choice.id == "xADV5bkgQtom") {
+		}  else if (choiceId == "xADV5bkgQtom") {
 			planning += 50;
 			execution += 15;
 			awareness += 2;
 		}
-	} else {
+	}
+
+
+
+	if (answers.has("262d368e-e958-476a-87a0-910f37a722e4")) {
+		const choicesIds = answers.get("262d368e-e958-476a-87a0-910f37a722e4").choices.ids;
 		let planning_7 = 0;
-		if (answers[7].choices.ids.includes("YGcSE2eplNuG")) {
+		if (choicesIds.includes("YGcSE2eplNuG")) {
 			planning_7 += 2;
 			execution += 2;
 		}
-		if (answers[7].choices.ids.includes("SmQZpTwyF7Eo")) {
+		if (choicesIds.includes("SmQZpTwyF7Eo")) {
 			planning_7 += 1;
 		}
-		if (answers[7].choices.ids.includes("oViWGTEf8TUJ")) {
+		if (choicesIds.includes("oViWGTEf8TUJ")) {
 			planning_7 += 2;
 			agency -= 2;
 			estimations += 3;
 		}
-		if (answers[7].choices.ids.includes("iqlJNwXUIqT0")) {
+		if (choicesIds.includes("iqlJNwXUIqT0")) {
 			planning_7 += 1;
 		}
-		if (answers[7].choices.ids.includes("ZrqsCKl9UMxV")) {
+		if (choicesIds.includes("ZrqsCKl9UMxV")) {
 			planning_7 += 1;
 			learning -= 4;
 			agency -= 4;
@@ -267,503 +293,578 @@ exports.calcScores = function(answers) {
 	}
 
 
-
-	if (answers[8].choice.id == "CQntvyDouIae") {
-		planning -= 4;
-		agency += 2;
-	} else if (answers[8].choice.id == "lwxcNYLlqiy1") {
-		planning -= 2;
-		agency += 4;
-	}  else if (answers[8].choice.id == "lfhVnbMD8gOQ") {
-		planning += 1;
-		agency += 8;
-	}  else if (answers[8].choice.id == "xJfQYwqizygK") {
-		planning += 3;
-		agency += 10;
-	}  else if (answers[8].choice.id == "G2nIFPU6QlbL") {
-		planning += 10;
-		agency += 16;
-	}  else if (answers[8].choice.id == "w76BefCwZkYe") {
-		planning +=  14;
-		agency += 24;
+	if (answers.has("380672f4-a786-4192-ac79-4d8b6d403e22")) {
+		const choiceId = answers.get("380672f4-a786-4192-ac79-4d8b6d403e22").choice.id;
+		if (choiceId == "CQntvyDouIae") {
+			planning -= 4;
+			agency += 2;
+		} else if (choiceId == "lwxcNYLlqiy1") {
+			planning -= 2;
+			agency += 4;
+		}  else if (choiceId == "lfhVnbMD8gOQ") {
+			planning += 1;
+			agency += 8;
+		}  else if (choiceId == "xJfQYwqizygK") {
+			planning += 3;
+			agency += 10;
+		}  else if (choiceId == "G2nIFPU6QlbL") {
+			planning += 10;
+			agency += 16;
+		}  else if (choiceId == "w76BefCwZkYe") {
+			planning +=  14;
+			agency += 24;
+		}
 	}
 
 
-	if (answers[9].choice.id == "PTEAAzzOtZ8g") {
-		planning += 10;
-		agency += 16;
-		awareness += 2;
-	} else if (answers[9].choice.id == "HisXin8zfWkU") {
-		planning += 9;
-		agency += 12;
-		awareness += 2;
-	}  else if (answers[9].choice.id == "Zh6iPHBG38uR") {
-		planning += 6;
-		agency += 7;
-	}  else if (answers[9].choice.id == "wORNG1NAAjSn") {
-		planning += 4;
-		agency += 3;
-	}  else if (answers[9].choice.id == "XiWBNHKC19aN") {
-		planning += 1;
-		agency -= 2;
+	if (answers.has("ea808a67-b813-47f0-a5e6-8503d0904b84")) {
+		const choiceId = answers.get("ea808a67-b813-47f0-a5e6-8503d0904b84").choice.id;
+		if (choiceId == "PTEAAzzOtZ8g") {
+			planning += 10;
+			agency += 16;
+			awareness += 2;
+		} else if (choiceId == "HisXin8zfWkU") {
+			planning += 9;
+			agency += 12;
+			awareness += 2;
+		}  else if (choiceId == "Zh6iPHBG38uR") {
+			planning += 6;
+			agency += 7;
+		}  else if (choiceId == "wORNG1NAAjSn") {
+			planning += 4;
+			agency += 3;
+		}  else if (choiceId == "XiWBNHKC19aN") {
+			planning += 1;
+			agency -= 2;
+		}
 	}
 
 
-	if (answers[10].choice.id == "4ZkDC7qzqvP0") {
-		planning += 10;
-		execution += 2;
-		agency += 16;
-		awareness += 3;
-	} else if (answers[10].choice.id == "6HWnKSLIHMML") {
-		planning += 4;
-	}  else if (answers[10].choice.id == "eyJVZwrf7CYi") {
-		planning += 6;
-		agency += 6;
-		awareness += 3;
-	}  else if (answers[10].choice.id == "Oe2rq7fikhlO") {
-		planning += 2;
-		awareness += 3;
+	if (answers.has("a97e8bcb-7d07-4998-abe3-17120fff0add")) {
+		const choiceId = answers.get("a97e8bcb-7d07-4998-abe3-17120fff0add").choice.id;
+		if (choiceId == "4ZkDC7qzqvP0") {
+			planning += 10;
+			execution += 2;
+			agency += 16;
+			awareness += 3;
+		} else if (choiceId == "6HWnKSLIHMML") {
+			planning += 4;
+		}  else if (choiceId == "eyJVZwrf7CYi") {
+			planning += 6;
+			agency += 6;
+			awareness += 3;
+		}  else if (choiceId == "Oe2rq7fikhlO") {
+			planning += 2;
+			awareness += 3;
+		}
 	}
 
 
-	if (answers[11].choice.id == "ROhYZqRR8coo") {
-		planning += 4;
-		execution += 14;
-		agency += 6;
-		estimations += 2;
-	} else if (answers[11].choice.id == "DiPX40QNpI61") {
-		execution += 7;
-		agency += 2;
-	}  else if (answers[11].choice.id == "vMMkzwT3xzaz") {
-		execution += 1;
-		agency -= 2;
-		estimations += 2;
+	if (answers.has("11e8adbb-cfe1-43c0-acb6-6dd0c33fabb3")) {
+		const choiceId = answers.get("11e8adbb-cfe1-43c0-acb6-6dd0c33fabb3").choice.id;
+		if (choiceId == "ROhYZqRR8coo") {
+			planning += 4;
+			execution += 14;
+			agency += 6;
+			estimations += 2;
+		} else if (choiceId == "DiPX40QNpI61") {
+			execution += 7;
+			agency += 2;
+		}  else if (choiceId == "vMMkzwT3xzaz") {
+			execution += 1;
+			agency -= 2;
+			estimations += 2;
+		}
 	}
 
 
-	if (answers[12].choices.ids.includes("A3mm3Rk0M31A")) {
-		planning += 10;
-		execution += 2;
-		agency += 2;
-		estimations += 4;
-	}
-	if (answers[12].choices.ids.includes("5Ld0gOX76Ibq")) {
-		planning += 1;
-		execution += 8;
-		agency += 6;
-		awareness += 4;
-	}
-	if (answers[12].choices.ids.includes("jyoYuSRxIbgp")) {
-		planning += 1;
-		execution += 2;
-		agency += 2;
-		awareness += 3;
-	}
-	if (answers[12].choices.ids.includes("hNGgNGlTgMId")) {
-		planning += 1;
-		execution += 2;
-		communication += 5;
-		agency += 2;
-		awareness += 4;
-	}
-	if (answers[12].choices.ids.includes("OktxycGYlpYk")) {
-		planning += 4;
-		execution += 2;
-		communication += 1;
-		learning += 8;
-		agency += 6;
-		awareness += 3;
-		estimations += 2;
-	}
-
-
-	if (answers[13].choices.ids.includes("ZIOz25cFqhfD")) {
-		planning -= 4;
-		execution -= 2;
-		agency -= 4;
-		awareness += 2;
-		estimations -= 4;
-	}
-	if (answers[13].choices.ids.includes("FqcswomwDosn")) {
-		planning -= 2;
-		execution -= 1;
-		agency += 4;
-		awareness += 4;
-	}
-	if (answers[13].choices.ids.includes("EzgRM8iDsgIK")) {
-		planning -= 2;
-		execution -= 1;
-		agency += 8;
-	}
-	if (answers[13].choices.ids.includes("xeNluP5Flvcu")) {
-		agency += 14;
-		awareness += 1;
-	}
-	if (answers[13].choices.ids.includes("qv5kJBb83STf")) {
-		execution -= 5;
-		agency -= 8;
-		awareness -= 4;
+	if (answers.has("0b6db72c-ff8f-428f-9f70-8f32dfa1493d")) {
+		const choicesIds = answers.get("0b6db72c-ff8f-428f-9f70-8f32dfa1493d").choices.ids;
+		if (choicesIds.includes("A3mm3Rk0M31A")) {
+			planning += 10;
+			execution += 2;
+			agency += 2;
+			estimations += 4;
+		}
+		if (choicesIds.includes("5Ld0gOX76Ibq")) {
+			planning += 1;
+			execution += 8;
+			agency += 6;
+			awareness += 4;
+		}
+		if (choicesIds.includes("jyoYuSRxIbgp")) {
+			planning += 1;
+			execution += 2;
+			agency += 2;
+			awareness += 3;
+		}
+		if (choicesIds.includes("hNGgNGlTgMId")) {
+			planning += 1;
+			execution += 2;
+			communication += 5;
+			agency += 2;
+			awareness += 4;
+		}
+		if (choicesIds.includes("OktxycGYlpYk")) {
+			planning += 4;
+			execution += 2;
+			communication += 1;
+			learning += 8;
+			agency += 6;
+			awareness += 3;
+			estimations += 2;
+		}
 	}
 
 
-	if (answers[14].choice.id == "bmXKhr4vqISx") {
-		execution -= 10;
-		agency -= 4;
-		awareness -= 4;
-	} else if (answers[14].choice.id == "1rTAblfyp3MH") {
-		execution -= 3;
-		agency -= 2;
-		awareness -= 1;
-	}  else if (answers[14].choice.id == "JC5XkzC29ewS") {
-		planning += 1;
-		execution += 1;
-		learning += 6;
-		agency += 4;
-		awareness += 4;
-	}  else if (answers[14].choice.id == "JmyaIyPWAApx") {
-		planning += 1;
-		execution += 2;
-		agency += 2;
-		awareness += 4;
-		estimations -= 2;
-	}  else if (answers[14].choice.id == "PAPB0wcZbHu2") {
-		planning += 1;
-		execution += 4;
-		agency += 8;
-		awareness += 8;
+	if (answers.has("2172d7de-bda5-4fdf-ab76-09c4c3d2a23a")) {
+		const choicesIds = answers.get("2172d7de-bda5-4fdf-ab76-09c4c3d2a23a").choices.ids;
+		if (choicesIds.includes("ZIOz25cFqhfD")) {
+			planning -= 4;
+			execution -= 2;
+			agency -= 4;
+			awareness += 2;
+			estimations -= 4;
+		}
+		if (choicesIds.includes("FqcswomwDosn")) {
+			planning -= 2;
+			execution -= 1;
+			agency += 4;
+			awareness += 4;
+		}
+		if (choicesIds.includes("EzgRM8iDsgIK")) {
+			planning -= 2;
+			execution -= 1;
+			agency += 8;
+		}
+		if (choicesIds.includes("xeNluP5Flvcu")) {
+			agency += 14;
+			awareness += 1;
+		}
+		if (choicesIds.includes("qv5kJBb83STf")) {
+			execution -= 5;
+			agency -= 8;
+			awareness -= 4;
+		}
+	}
+
+	if (answers.has("9aa0229d-f583-461c-a588-385ea092c8d1")) {
+		const choiceId = answers.get("9aa0229d-f583-461c-a588-385ea092c8d1").choice.id;
+		if (choiceId == "bmXKhr4vqISx") {
+			execution -= 10;
+			agency -= 4;
+			awareness -= 4;
+		} else if (choiceId == "1rTAblfyp3MH") {
+			execution -= 3;
+			agency -= 2;
+			awareness -= 1;
+		}  else if (choiceId == "JC5XkzC29ewS") {
+			planning += 1;
+			execution += 1;
+			learning += 6;
+			agency += 4;
+			awareness += 4;
+		}  else if (choiceId == "JmyaIyPWAApx") {
+			planning += 1;
+			execution += 2;
+			agency += 2;
+			awareness += 4;
+			estimations -= 2;
+		}  else if (choiceId == "PAPB0wcZbHu2") {
+			planning += 1;
+			execution += 4;
+			agency += 8;
+			awareness += 8;
+		}
 	}
 
 
-	if (answers[15].choice.id == "ISUItTZ36VjS") {
-		execution += 10;
-		learning += 2;
-		agency += 3;
-		awareness += 2;
-	} else if (answers[15].choice.id == "h2SqwBC3LPWf") {
-		execution += 10;
-		learning += 6;
-		agency += 3;
-		awareness += 2;
-	}  else if (answers[15].choice.id == "52d4OQcfqQOa") {
-		execution += 4;
-		agency += 1;
-		awareness += 2;
-	}  else if (answers[15].choice.id == "mWD8vMXgT6u4") {
-		execution += 2;
-		awareness += 2;
-	}  else if (answers[15].choice.id == "5zbxxHACki9e") {
-		execution += 4;
-		communication += 10;
-		agency += 2;
-		awareness += 2;
-	}  else if (answers[15].choice.id == "pkHfBnKCZ8Dm") {
-		execution += 4;
-		communication += 7;
-		agency += 1;
-		awareness += 2;
-	}  else if (answers[15].choice.id == "3WPI7QpviRoi") {
-		execution += 3;
-		learning += 4;
-		agency += 3;
-		awareness += 2;
-	}  else if (answers[15].choice.id == "oHMnHMAdmT8q") {
-		communication += 2;
-	}  else if (answers[15].choice.id == "fmCkOixok3KO") {
-		execution -= 1;
-		communication += 1;
+	if (answers.has("e5a06bc6-e607-40ae-846e-598268c034a3")) {
+		const choiceId = answers.get("e5a06bc6-e607-40ae-846e-598268c034a3").choice.id;
+		if (choiceId == "ISUItTZ36VjS") {
+			execution += 10;
+			learning += 2;
+			agency += 3;
+			awareness += 2;
+		} else if (choiceId == "h2SqwBC3LPWf") {
+			execution += 10;
+			learning += 6;
+			agency += 3;
+			awareness += 2;
+		}  else if (choiceId == "52d4OQcfqQOa") {
+			execution += 4;
+			agency += 1;
+			awareness += 2;
+		}  else if (choiceId == "mWD8vMXgT6u4") {
+			execution += 2;
+			awareness += 2;
+		}  else if (choiceId == "5zbxxHACki9e") {
+			execution += 4;
+			communication += 10;
+			agency += 2;
+			awareness += 2;
+		}  else if (choiceId == "pkHfBnKCZ8Dm") {
+			execution += 4;
+			communication += 7;
+			agency += 1;
+			awareness += 2;
+		}  else if (choiceId == "3WPI7QpviRoi") {
+			execution += 3;
+			learning += 4;
+			agency += 3;
+			awareness += 2;
+		}  else if (choiceId == "oHMnHMAdmT8q") {
+			communication += 2;
+		}  else if (choiceId == "fmCkOixok3KO") {
+			execution -= 1;
+			communication += 1;
+		}
 	}
 
 
-	let execution_16;
-	if (answers[16].choice.id == "xUC7D6hEeO6S") {
-		execution_16 = 4;
-		agency += 2;
-		awareness += 8;
-	} else if (answers[16].choice.id == "LPyAu7zhDXQP") {
-		execution_16 = 2;
-		learning += 2;
-		awareness += 6;
-	}  else if (answers[16].choice.id == "rQ5iAEAjtqbj") {
-		execution_16 = -1;
-		learning += 2;
-		awareness += 4;
-	}  else if (answers[16].choice.id == "zuCqTnEdC5rN") {
-	}
-	execution += execution_16;
-
-
-
-	if (answers[17].choices.ids.includes("nvkzfhpwNroh")) {
-		planning += 1;
-		execution += 2;
-		agency += 4;
-		awareness += 4;
-	}
-	if (answers[17].choices.ids.includes("kVbtmSOwZoLs")) {
-		planning += 1;
-		execution += 2;
-		agency += 4;
-		awareness += 4;
-	}
-	if (answers[17].choices.ids.includes("rpZGh6LzEies")) {
-		planning += 1;
-		execution += 2;
-		agency += 4;
-		awareness += 4;
-	}
-	if (answers[17].choices.ids.includes("aw62dZhItu2n")) {
-		planning += 1;
-		execution += 2;
-		agency += 4;
-		awareness += 4;
-	}
-	if (answers[17].choices.ids.includes("IcM9GhQAEhp8")) {
-		planning += 1;
-		execution += 2;
-		communication += 8;
-		agency += 4;
-		awareness += 4;
-	}
-	if (answers[17].choices.ids.includes("pCBAysBorEvE")) {
-		execution -= 2;
+	if (answers.has("6af16581-3e17-4d88-bc3c-a38df155eb10")) {
+		const choiceId = answers.get("6af16581-3e17-4d88-bc3c-a38df155eb10").choice.id;
+		let execution_16;
+		if (choiceId == "xUC7D6hEeO6S") {
+			execution_16 = 4;
+			agency += 2;
+			awareness += 8;
+		} else if (choiceId == "LPyAu7zhDXQP") {
+			execution_16 = 2;
+			learning += 2;
+			awareness += 6;
+		}  else if (choiceId == "rQ5iAEAjtqbj") {
+			execution_16 = -1;
+			learning += 2;
+			awareness += 4;
+		}  else if (choiceId == "zuCqTnEdC5rN") {
+		}
+		execution += execution_16;
 	}
 
 
-	if (!answers[17].choices.ids.includes("pCBAysBorEvE")) {
-		if (answers[18].choice.id == "CcbZPmvlpu8Z") {
+
+	if (answers.has("284c2d17-3da4-4e8f-a3b0-6c63cf3058bf")) {
+		const choicesIds = answers.get("284c2d17-3da4-4e8f-a3b0-6c63cf3058bf").choices.ids;
+		if (choicesIds.includes("ZIOz25cFqhfD")) {
+		if (choicesIds.includes("nvkzfhpwNroh")) {
+			planning += 1;
+			execution += 2;
+			agency += 4;
+			awareness += 4;
+		}
+		if (choicesIds.includes("kVbtmSOwZoLs")) {
+			planning += 1;
+			execution += 2;
+			agency += 4;
+			awareness += 4;
+		}
+		if (choicesIds.includes("rpZGh6LzEies")) {
+			planning += 1;
+			execution += 2;
+			agency += 4;
+			awareness += 4;
+		}
+		if (choicesIds.includes("aw62dZhItu2n")) {
+			planning += 1;
+			execution += 2;
+			agency += 4;
+			awareness += 4;
+		}
+		if (choicesIds.includes("IcM9GhQAEhp8")) {
+			planning += 1;
+			execution += 2;
+			communication += 8;
+			agency += 4;
+			awareness += 4;
+		}
+		if (choicesIds.includes("pCBAysBorEvE")) {
+			execution -= 2;
+		}
+	}
+
+
+	if (answers.has("0cfea30e-c272-4cc4-963a-ff4737b9d557")) {
+		const choiceId = answers.get("0cfea30e-c272-4cc4-963a-ff4737b9d557").choice.id;
+		if (choiceId == "CcbZPmvlpu8Z") {
 			execution += 0.5*execution_16;
 			agency -= 4;
 			awareness -= 4;
-		} else if (answers[18].choice.id == "gQxOAgy6fItp") {
+		} else if (choiceId == "gQxOAgy6fItp") {
 			planning -= 2;
 			execution += 0.4*execution_16;
 			awareness += 2;
-		}  else if (answers[18].choice.id == "CDjJAQ1aDPh3") {
+		}  else if (choiceId == "CDjJAQ1aDPh3") {
 			planning += 2;
 			execution += 2*execution_16;
 			awareness += 2;
-		}  else if (answers[18].choice.id == "lQAhF98IxEgI") {
+		}  else if (choiceId == "lQAhF98IxEgI") {
 			planning += 3;
 			execution += 1*execution_16;
 		}
 	}
 
 
-	if (answers[19].choice.id == "mge3WkMvRwlR") {
-		execution += 5;
-		communication += 6;
-		learning += 6;
-		agency += 4;
-		awareness += 12;
-	} else if (answers[19].choice.id == "PLAFBM1nTiai") {
-		execution += 3;
-		communication += 7;
-		awareness += 8;
-	}  else if (answers[19].choice.id == "ZuC35N0IsBF9") {
-		execution += 1;
-		awareness += 4;
-	}  else if (answers[19].choice.id == "LTxXmf9WGdiP") {
-		execution -= 10;
+	if (answers.has("c0e5cdd3-266e-43e4-80fc-0e716c77e240")) {
+		const choiceId = answers.get("c0e5cdd3-266e-43e4-80fc-0e716c77e240").choice.id;
+		if (choiceId == "mge3WkMvRwlR") {
+			execution += 5;
+			communication += 6;
+			learning += 6;
+			agency += 4;
+			awareness += 12;
+		} else if (choiceId == "PLAFBM1nTiai") {
+			execution += 3;
+			communication += 7;
+			awareness += 8;
+		}  else if (choiceId == "ZuC35N0IsBF9") {
+			execution += 1;
+			awareness += 4;
+		}  else if (choiceId == "LTxXmf9WGdiP") {
+			execution -= 10;
+		}
 	}
 
 
-	let communication_20, agency_20;
-	if (answers[20].choice.id == "x1xxZ678yhrC") {
-		communication_20 = -1;
-		agency_20 = 4;
-	} else if (answers[20].choice.id == "K41dBW7ZU5Jh") {
-		communication_20 = 1;
-		agency_20 = 3;
-	}  else if (answers[20].choice.id == "dwptETiwv0e9") {
-		communication_20 = 8;
-		agency_20 = 2;
-	}
-	communication += communication_20;
-	agency += agency_20;
-
-
-	if (answers[21].choice.id == "FGMtCrhLaxNn") {
-		communication += communication_20*3;
-		agency += agency_20*4;
-	} else if (answers[21].choice.id == "EeKXkhNCWYWQ") {
-		communication += communication_20*1;
-		agency += agency_20*1;
-	}  else if (answers[21].choice.id == "Jsm6ExcsA8oF") {
-		communication += communication_20*2;
-		agency += agency_20*2;
+	if (answers.has("a8b61c2d-d4cd-4be3-bfa2-f304865c11b1")) {
+		const choiceId = answers.get("a8b61c2d-d4cd-4be3-bfa2-f304865c11b1").choice.id;
+		let communication_20, agency_20;
+		if (choiceId == "x1xxZ678yhrC") {
+			communication_20 = -1;
+			agency_20 = 4;
+		} else if (choiceId == "K41dBW7ZU5Jh") {
+			communication_20 = 1;
+			agency_20 = 3;
+		}  else if (choiceId == "dwptETiwv0e9") {
+			communication_20 = 8;
+			agency_20 = 2;
+		}
+		communication += communication_20;
+		agency += agency_20;
 	}
 
 
-	if (answers[22].choice.id == "JWqVlvjob3ZG") {
-		execution += 2;
-		communication += 10;
-		agency += 7;
-		awareness += 4;
-	} else if (answers[22].choice.id == "t2NytmK2JY3v") {
-		communication -= 7;
-	}  else if (answers[22].choice.id == "685ROZ3CfG2a") {
-		communication -= 4;
-	}  else if (answers[22].choice.id == "nVHIPnndEXAF") {
-		execution -= 1;
-		communication -= 6;
+	if (answers.has("609cd414-3038-44ed-adbd-b3cf5e527b68")) {
+		const choiceId = answers.get("609cd414-3038-44ed-adbd-b3cf5e527b68").choice.id;
+		if (choiceId == "FGMtCrhLaxNn") {
+			communication += communication_20*3;
+			agency += agency_20*4;
+		} else if (choiceId == "EeKXkhNCWYWQ") {
+			communication += communication_20*1;
+			agency += agency_20*1;
+		}  else if (choiceId == "Jsm6ExcsA8oF") {
+			communication += communication_20*2;
+			agency += agency_20*2;
+		}
 	}
 
 
-	if (answers[23].choice.id == "FN1q6iEO7kbk") {
-		communication += 2;
-		agency += 8;
-		awareness += 4;
-	} else if (answers[23].choice.id == "MfUJyOwUWWkd") {
-		communication += 8;
-		agency += 8;
-		awareness += 4;
-	}  else if (answers[23].choice.id == "XNqgAvpHSSWa") {
-		communication += 1;
-	}  else if (answers[23].choice.id == "P0QFFHhJMas8") {
-		planning -= 1;
-		execution -= 1;
-		communication -= 6;
-		agency -= 4;
+	if (answers.has("b9fcb8d9-fa26-43b2-b367-4e4292fbe727")) {
+		const choiceId = answers.get("b9fcb8d9-fa26-43b2-b367-4e4292fbe727").choice.id;
+		if (choiceId == "JWqVlvjob3ZG") {
+			execution += 2;
+			communication += 10;
+			agency += 7;
+			awareness += 4;
+		} else if (choiceId == "t2NytmK2JY3v") {
+			communication -= 7;
+		}  else if (choiceId == "685ROZ3CfG2a") {
+			communication -= 4;
+		}  else if (choiceId == "nVHIPnndEXAF") {
+			execution -= 1;
+			communication -= 6;
+		}
 	}
 
 
-	let communication_24;
-	if (answers[24].choice.id == "Ct35iVhim4Wd") {
-		communication_24 = 2;
-		agency += 8;
-		awareness += 4;
-	} else if (answers[24].choice.id == "3KcL5z6n2jqb") {
-		communication_24 = 3;
-		agency += 2;
-	}  else if (answers[24].choice.id == "NZgE6xypnKP1") {
-		communication_24 = 4;
-		learning += 2;
-		agency += 4;
-	}
-	communication += communication_24;
-
-
-	if (answers[25].choice.id == "t2fsfIACazag") {
-		communication += 2*communication_24;
-		learning += 8;
-		agency += 6;	
-	} else if (answers[25].choice.id == "10x52ytHSM9R") {
-		communication += 4*communication_24;
-		agency += 2;
-	}  else if (answers[25].choice.id == "UyZSATVV5F4j") {
-		communication += 1*communication_24;
+	if (answers.has("302d55a2-42ba-45d9-8551-6123c0bb1860")) {
+		const choiceId = answers.get("302d55a2-42ba-45d9-8551-6123c0bb1860").choice.id;
+		if (choiceId == "FN1q6iEO7kbk") {
+			communication += 2;
+			agency += 8;
+			awareness += 4;
+		} else if (choiceId == "MfUJyOwUWWkd") {
+			communication += 8;
+			agency += 8;
+			awareness += 4;
+		}  else if (choiceId == "XNqgAvpHSSWa") {
+			communication += 1;
+		}  else if (choiceId == "P0QFFHhJMas8") {
+			planning -= 1;
+			execution -= 1;
+			communication -= 6;
+			agency -= 4;
+		}
 	}
 
 
-	if (answers[26].choice.id == "HACR0SCo0gl1") {
-		learning -= 7;
-		awareness -= 2;
-	} else if (answers[26].choice.id == "084ioeMz9Ern") {
-		learning += 8;
-		agency += 2;
-	}  else if (answers[26].choice.id == "7ezx8PsmUjg5") {
-		communication += 4;
-		learning += 6;
-		agency += 2;
-	}  else if (answers[26].choice.id == "fpRzhzBdDUqg") {
-		learning += 10;
-		agency += 2;
+	if (answers.has("4fedac54-8a83-4140-b321-b60daeaf1cc6")) {
+		const choiceId = answers.get("4fedac54-8a83-4140-b321-b60daeaf1cc6").choice.id;
+		let communication_24;
+		if (choiceId == "Ct35iVhim4Wd") {
+			communication_24 = 2;
+			agency += 8;
+			awareness += 4;
+		} else if (choiceId == "3KcL5z6n2jqb") {
+			communication_24 = 3;
+			agency += 2;
+		}  else if (choiceId == "NZgE6xypnKP1") {
+			communication_24 = 4;
+			learning += 2;
+			agency += 4;
+		}
+		communication += communication_24;
 	}
 
 
-	if (answers[27].choice.id == "3BBVlihmWVl9") {
-		learning += 2;
-	} else if (answers[27].choice.id == "ymneHjV4ApjG") {
-		learning += 2;
-		agency += 2;
-	}  else if (answers[27].choice.id == "LIj7MJ14r9WR") {
-		learning += 6;
-		agency += 2;
-	}  else if (answers[27].choice.id == "Sp8c7KTRrCWX") {
-		learning += 3;
-		agency += 2;
+	if (answers.has("80690574-cedf-44bf-9159-3b739cff0484")) {
+		const choiceId = answers.get("80690574-cedf-44bf-9159-3b739cff0484").choice.id;
+		if (choiceId == "t2fsfIACazag") {
+			communication += 2*communication_24;
+			learning += 8;
+			agency += 6;	
+		} else if (choiceId == "10x52ytHSM9R") {
+			communication += 4*communication_24;
+			agency += 2;
+		}  else if (choiceId == "UyZSATVV5F4j") {
+			communication += 1*communication_24;
+		}
 	}
 
 
-	if (answers[28].choice.id == "K9WbKWgxP8Vi") {
-		planning += 2;
-		execution += 1;
-		learning += 8;
-		awareness += 12;
-		estimations += 8;
-	} else if (answers[28].choice.id == "m0wW39oFbCLr") {
-		planning += 1;
-		learning += 3;
-		awareness += 5;
-		estimations += 4;
-	}  else if (answers[28].choice.id == "JrfnhHbriAuE") {
+	if (answers.has("5e5aa725-bba8-439c-9341-ac180d31c53f")) {
+		const choiceId = answers.get("5e5aa725-bba8-439c-9341-ac180d31c53f").choice.id;
+		if (choiceId == "HACR0SCo0gl1") {
+			learning -= 7;
+			awareness -= 2;
+		} else if (choiceId == "084ioeMz9Ern") {
+			learning += 8;
+			agency += 2;
+		}  else if (choiceId == "7ezx8PsmUjg5") {
+			communication += 4;
+			learning += 6;
+			agency += 2;
+		}  else if (choiceId == "fpRzhzBdDUqg") {
+			learning += 10;
+			agency += 2;
+		}
 	}
 
 
-	if (answers[29].choice.id == "IfnmBJA8R5qh") {
-		awareness -= 3;
-	} else if (answers[29].choice.id == "YL7Tt2k8iWuB") {
-		learning += 2;
-		awareness += 2;
-	}  else if (answers[29].choice.id == "IL4a6XbY6xMl") {
-		learning += 6;
-		agency += 2;
-		awareness += 8;
-	}  else if (answers[29].choice.id == "1WHBmZgQTY2j") {
-		learning += 4;
-		agency += 2;
-		awareness += 7;
+	if (answers.has("7bf942ce-ad40-43ad-bdb5-96c5c4ebff4a")) {
+		const choiceId = answers.get("7bf942ce-ad40-43ad-bdb5-96c5c4ebff4a").choice.id;
+		if (choiceId == "3BBVlihmWVl9") {
+			learning += 2;
+		} else if (choiceId == "ymneHjV4ApjG") {
+			learning += 2;
+			agency += 2;
+		}  else if (choiceId == "LIj7MJ14r9WR") {
+			learning += 6;
+			agency += 2;
+		}  else if (choiceId == "Sp8c7KTRrCWX") {
+			learning += 3;
+			agency += 2;
+		}
 	}
 
 
-	if (answers[30].choice.id == "zQ0Hpe6QyVbh") {
-		awareness -= 8;
-	} else if (answers[30].choice.id == "RQ8RMgVGuJi6") {
-		estimations += 2;
-	}  else if (answers[30].choice.id == "IDgSPsYfeaQy") {
-		execution += 1;
-		awareness += 8;
-		estimations += 2;
+	if (answers.has("c42ec71c-621b-4384-87a0-f733e03ab2dc")) {
+		const choiceId = answers.get("c42ec71c-621b-4384-87a0-f733e03ab2dc").choice.id;
+		if (choiceId == "K9WbKWgxP8Vi") {
+			planning += 2;
+			execution += 1;
+			learning += 8;
+			awareness += 12;
+			estimations += 8;
+		} else if (choiceId == "m0wW39oFbCLr") {
+			planning += 1;
+			learning += 3;
+			awareness += 5;
+			estimations += 4;
+		}  else if (choiceId == "JrfnhHbriAuE") {
+		}
 	}
 
 
-	if (answers[32].choice.id == "x0nFZAhuwtpT") {
-		planning += 1;
-		execution += 2;
-		awareness += 12;
-		estimations += 14;
-	} else if (answers[32].choice.id == "JEWy328uIhtg") {
-		execution += 1;
-		awareness += 6;
-		estimations += 4;
-	}  else if (answers[32].choice.id == "xxZLQLbRiuX6") {
+	if (answers.has("1ccce458-afc6-4113-82fc-60b0710ab6c7")) {
+		const choiceId = answers.get("1ccce458-afc6-4113-82fc-60b0710ab6c7").choice.id;
+		if (choiceId == "IfnmBJA8R5qh") {
+			awareness -= 3;
+		} else if (choiceId == "YL7Tt2k8iWuB") {
+			learning += 2;
+			awareness += 2;
+		}  else if (choiceId == "IL4a6XbY6xMl") {
+			learning += 6;
+			agency += 2;
+			awareness += 8;
+		}  else if (choiceId == "1WHBmZgQTY2j") {
+			learning += 4;
+			agency += 2;
+			awareness += 7;
+		}
 	}
 
 
-	if (answers[34].choice.id == "laBiWzaUZjaC") {
-		planning += 1;
-		execution += 2;
-		learning += 6;
-		awareness += 12;
-		estimations += 20;
-	} else if (answers[34].choice.id == "BtMp1neFZxWz") {
-		execution += 1;
-		learning += 3;
-		estimations += 8;
-	}  else if (answers[34].choice.id == "2s9rghPVzYij") {
-		awareness -= 4;
-		estimations -= 3;
+	if (answers.has("f18021e2-5915-400c-b38a-4e3adcd95d85")) {
+		const choiceId = answers.get("f18021e2-5915-400c-b38a-4e3adcd95d85").choice.id;
+		if (choiceId == "zQ0Hpe6QyVbh") {
+			awareness -= 8;
+		} else if (choiceId == "RQ8RMgVGuJi6") {
+			estimations += 2;
+		}  else if (choiceId == "IDgSPsYfeaQy") {
+			execution += 1;
+			awareness += 8;
+			estimations += 2;
+		}
 	}
 
 
-	if (answers[35].choice.id == "97DkVBtz0PJr") {
-		estimations += 4;
-	} else if (answers[35].choice.id == "Krrysm9KT4c7") {
-		planning += 1;
-		estimations += 12;
-	}  else if (answers[35].choice.id == "iFbYkUdBWKmP") {
-		estimations -= 4;
-	}  else if (answers[35].choice.id == "2a9XZeanOjGS") {
+	if (answers.has("aa9ad862-d4e8-474c-bd1d-1d1d3af8e170")) {
+		const choiceId = answers.get("aa9ad862-d4e8-474c-bd1d-1d1d3af8e170").choice.id;
+		if (choiceId == "x0nFZAhuwtpT") {
+			planning += 1;
+			execution += 2;
+			awareness += 12;
+			estimations += 14;
+		} else if (choiceId == "JEWy328uIhtg") {
+			execution += 1;
+			awareness += 6;
+			estimations += 4;
+		}  else if (choiceId == "xxZLQLbRiuX6") {
+		}
+	}
+
+
+	if (answers.has("3cd3c7b8-9499-42c9-b6dc-452fc8b31c48")) {
+		const choiceId = answers.get("3cd3c7b8-9499-42c9-b6dc-452fc8b31c48").choice.id;
+		if (choiceId == "laBiWzaUZjaC") {
+			planning += 1;
+			execution += 2;
+			learning += 6;
+			awareness += 12;
+			estimations += 20;
+		} else if (choiceId == "BtMp1neFZxWz") {
+			execution += 1;
+			learning += 3;
+			estimations += 8;
+		}  else if (choiceId == "2s9rghPVzYij") {
+			awareness -= 4;
+			estimations -= 3;
+		}
+	}
+
+
+	if (answers.has("42e29c2e-e552-47ed-960c-f0ee3a556d3b")) {
+		const choiceId = answers.get("42e29c2e-e552-47ed-960c-f0ee3a556d3b").choice.id;
+		if (choiceId == "97DkVBtz0PJr") {
+			estimations += 4;
+		} else if (choiceId == "Krrysm9KT4c7") {
+			planning += 1;
+			estimations += 12;
+		}  else if (choiceId == "iFbYkUdBWKmP") {
+			estimations -= 4;
+		}  else if (choiceId == "2a9XZeanOjGS") {
+		}
 	}
 
 
