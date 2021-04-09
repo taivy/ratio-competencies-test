@@ -98,9 +98,8 @@ exports.calcScores = function(answers) {
 	console.log("answers", answers);
 	let [planning, execution, communication, learning, agency, awareness, estimations] = [0, 0, 0, 0, 0, 0, 0];
 
+	let planning_1 = 0;
 	if (answers.has("01EWFVBMK4P8GFSCMYESCWMC4P")) {
-
-		let planning_1;
 		const choiceId = answers.get("01EWFVBMK4P8GFSCMYESCWMC4P").choice.id;
 		if (choiceId == "Zkcyzjho0xDc") {
 			planning_1 = 3;
@@ -133,10 +132,9 @@ exports.calcScores = function(answers) {
 	}
 
 
-	let planning_4;
+	let planning_4, planning_2 = 0, 0;
 	if (answers.has("01EWFVBMK4P8GFSCMYESCWMC4P") && answers.get("01EWFVBMK4P8GFSCMYESCWMC4P").choice.id !== "DWKyOsVeEoZE") {
 
-		let planning_2;
 		if (answers.has("01EWFVBMNDJEXQZKJ1FPDZJ9KR")) {
 			const choiceId = answers.get("01EWFVBMNDJEXQZKJ1FPDZJ9KR").choice.id;
 			if (choiceId == "DdZVCnyQCMf0") {
@@ -243,9 +241,9 @@ exports.calcScores = function(answers) {
 
 
 
+	let planning_7 = 0;
 	if (answers.has("262d368e-e958-476a-87a0-910f37a722e4")) {
 		const choicesIds = answers.get("262d368e-e958-476a-87a0-910f37a722e4").choices.ids;
-		let planning_7 = 0;
 		if (choicesIds.includes("YGcSE2eplNuG")) {
 			planning_7 += 2;
 			execution += 2;
@@ -499,9 +497,9 @@ exports.calcScores = function(answers) {
 	}
 
 
+	let execution_16 = 0;
 	if (answers.has("6af16581-3e17-4d88-bc3c-a38df155eb10")) {
 		const choiceId = answers.get("6af16581-3e17-4d88-bc3c-a38df155eb10").choice.id;
-		let execution_16;
 		if (choiceId == "xUC7D6hEeO6S") {
 			execution_16 = 4;
 			agency += 2;
@@ -602,9 +600,9 @@ exports.calcScores = function(answers) {
 	}
 
 
+	let communication_20, agency_20 = 0, 0;
 	if (answers.has("a8b61c2d-d4cd-4be3-bfa2-f304865c11b1")) {
 		const choiceId = answers.get("a8b61c2d-d4cd-4be3-bfa2-f304865c11b1").choice.id;
-		let communication_20, agency_20;
 		if (choiceId == "x1xxZ678yhrC") {
 			communication_20 = -1;
 			agency_20 = 4;
@@ -674,9 +672,9 @@ exports.calcScores = function(answers) {
 	}
 
 
+	let communication_24 = 0;
 	if (answers.has("4fedac54-8a83-4140-b321-b60daeaf1cc6")) {
 		const choiceId = answers.get("4fedac54-8a83-4140-b321-b60daeaf1cc6").choice.id;
-		let communication_24;
 		if (choiceId == "Ct35iVhim4Wd") {
 			communication_24 = 2;
 			agency += 8;
