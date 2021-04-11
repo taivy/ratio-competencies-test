@@ -68,7 +68,6 @@ window.addEventListener("DOMContentLoaded", function() {
     popup.open();
   });
   */
-  console.log("!11!!1")
   let el = document.querySelectorAll('[href*="mock_url"]');
 
   if (el.length > 0) {
@@ -79,4 +78,3 @@ window.addEventListener("DOMContentLoaded", function() {
   }
 
 });
-  console.log("???")
