@@ -1,5 +1,4 @@
 window.addEventListener("DOMContentLoaded", function() {
-  //const el = document.getElementById("ratio-competence-test");
   const formUrl = "https://kpbwd338my8.typeform.com/to/Edtmnimf";
   const imgText = "Вот твои компетенции, сохрани эту картинку";
   
@@ -11,7 +10,6 @@ window.addEventListener("DOMContentLoaded", function() {
     onSubmit: function (event) {
       console.log('Typeform successfully submitted')
       const response_id = event.response_id;
-      //const url = `http://64.227.43.113:9000/get-test-results`;
       const url = `https://pay.zaresh.ai/api/get-test-results`;
 
       const config = {
@@ -23,15 +21,11 @@ window.addEventListener("DOMContentLoaded", function() {
       }
       setTimeout(() => {
         fetch(url, config).then((resp) => {
-          console.log("resp", resp)
           resp.json().then((data) => {
-            console.log("data", data);
-            //el.innerHTML = "";
             let resultsChart = data.resultsChart;
-            var img = new Image();
+            const img = new Image();
             img.src = resultsChart;
             img.style.margin='10px';
-            //el.appendChild(img);
 
             let popup = document.querySelectorAll('[data-qa="popup-mode-popup"]');
             if (popup.length > 0) {
@@ -39,11 +33,11 @@ window.addEventListener("DOMContentLoaded", function() {
               let iframe = document.querySelector( '[data-qa="popup-mode-popup"] iframe' );
               iframe.parentNode.removeChild(iframe);
 
-              var imgTextElem=document.createElement('p');
+              const imgTextElem=document.createElement('p');
               imgTextElem.style.margin='0';
               imgTextElem.innerText=imgText;
 
-              var d=document.createElement('div');
+              const d=document.createElement('div');
               d.style.width='100%';
               d.style.height='100%';
               d.style.backgroundColor='white';
@@ -63,11 +57,6 @@ window.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  /*
-  document.getElementById('bt-popup').addEventListener('click', function () {
-    popup.open();
-  });
-  */
   let el = document.querySelectorAll('[href*="mock_url"]');
 
   if (el.length > 0) {
