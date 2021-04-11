@@ -132,7 +132,7 @@ exports.calcScores = function(answers) {
 	}
 
 
-	let planning_4, planning_2 = 0, 0;
+	let planning_4 = 0, planning_2 = 0;
 	if (answers.has("01EWFVBMK4P8GFSCMYESCWMC4P") && answers.get("01EWFVBMK4P8GFSCMYESCWMC4P").choice.id !== "DWKyOsVeEoZE") {
 
 		if (answers.has("01EWFVBMNDJEXQZKJ1FPDZJ9KR")) {
@@ -600,7 +600,7 @@ exports.calcScores = function(answers) {
 	}
 
 
-	let communication_20, agency_20 = 0, 0;
+	let communication_20 = 0, agency_20 = 0;
 	if (answers.has("a8b61c2d-d4cd-4be3-bfa2-f304865c11b1")) {
 		const choiceId = answers.get("a8b61c2d-d4cd-4be3-bfa2-f304865c11b1").choice.id;
 		if (choiceId == "x1xxZ678yhrC") {
